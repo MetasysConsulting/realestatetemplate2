@@ -2,11 +2,13 @@
   "name": "site-2-web",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "next start -p 3001",
+    "lint": "eslint",
+    "convert-template": "node scripts/convert-template.mjs"
   },
   "dependencies": {
     "next": "16.2.7",
