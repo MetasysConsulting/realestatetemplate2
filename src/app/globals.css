@@ -1,15 +1,7 @@
-:root {
-  --font-main: var(--font-lexend), "Lexend", sans-serif;
-  --font-main-2: var(--font-manrope), "Manrope", sans-serif;
-}
-
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-main);
-}
-
-#template-root {
-  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
 }

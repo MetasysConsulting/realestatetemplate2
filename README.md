@@ -1,50 +1,24 @@
-# Site 2 — HTML template → Next.js
+# Site 2 — ForeclosureIQ (Next.js)
 
-Second website in the Hawai Guy Project. **Separate from** `../proty-web` (Site 1).
+**ForeclosureIQ** distressed property intelligence prototype, ported from standalone HTML.
 
-## Paste your template
+| Route | Source file |
+|-------|-------------|
+| `/` | `foreclosure-prototype.html` |
+| `/prototype-1` | `foreclosure-prototype_1.html` |
 
-1. Put files in `template-source/`:
+Repo: [MetasysConsulting/realestatetemplate2](https://github.com/MetasysConsulting/realestatetemplate2)
 
-```
-template-source/
-├── html/       ← all .html pages
-├── css/
-├── js/
-├── images/
-├── icons/
-└── routes.json   ← optional custom URLs
-```
-
-2. Convert and run:
+## Commands
 
 ```bash
-pnpm convert-template
-pnpm dev
+pnpm convert-template   # Re-import HTML from template-source/
+pnpm dev                # http://localhost:3001
+pnpm build
 ```
 
-Open **http://localhost:3001** (Site 1 uses port 3000).
+## Add more pages
 
-## Scripts
+Put `.html` in `template-source/html/` and optional paths in `template-source/routes.json`, then run `pnpm convert-template`.
 
-| Command | Description |
-|---------|-------------|
-| `pnpm convert-template` | Import HTML from `template-source/` |
-| `pnpm dev` | Dev server on port 3001 |
-| `pnpm build` | Production build |
-| `pnpm start` | Run production build |
-
-## Custom routes
-
-Optional `template-source/routes.json`:
-
-```json
-{
-  "about-us.html": "/about",
-  "home02.html": "/home/02"
-}
-```
-
-## Site 1
-
-Proty real estate site: `../proty-web` → [MetasysConsulting/realestatetemplate](https://github.com/MetasysConsulting/realestatetemplate)
+Site 1 (Proty): `../proty-web` on port 3000.

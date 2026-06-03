@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SetupPlaceholder } from "@/components/template/SetupPlaceholder";
+import { StandaloneHtmlPage } from "@/components/template/StandaloneHtmlPage";
 import { TemplatePage } from "@/components/template/TemplatePage";
 import { loadTemplatePageBySlug } from "@/lib/load-template-page";
 import {
@@ -33,7 +34,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const route = resolveRoute((await params).slug);
   const meta = getTemplateMetaByRoute(route);
-  return { title: meta?.title ?? "Site 2" };
+  return {
+    title: meta?.title ?? "ForeclosureIQ",
+    description: "Distressed property intelligence — foreclosure listings prototype.",
+  };
 }
 
 export default async function TemplateRoutePage({ params }: PageProps) {
@@ -48,6 +52,10 @@ export default async function TemplateRoutePage({ params }: PageProps) {
 
   const data = loadTemplatePageBySlug(pageMeta.slug);
   if (!data) notFound();
+
+  if (data.standalone || pageMeta.standalone) {
+    return <StandaloneHtmlPage html={data.html} title={data.title} />;
+  }
 
   return <TemplatePage html={data.html} bodyClass={data.bodyClass} />;
 }

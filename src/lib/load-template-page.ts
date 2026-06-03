@@ -6,6 +6,7 @@ export type TemplatePageData = {
   bodyClass: string;
   title: string;
   html: string;
+  standalone?: boolean;
 };
 
 export function loadTemplatePageBySlug(slug: string): TemplatePageData | null {

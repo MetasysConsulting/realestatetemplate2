@@ -23,17 +23,35 @@ function fileToDefaultRoute(filename) {
   return `/${base}`;
 }
 
+function discoverHtmlFiles() {
+  const files = new Set();
+  if (fs.existsSync(HTML_DIR)) {
+    for (const f of fs.readdirSync(HTML_DIR)) {
+      if (f.endsWith(".html") && !f.startsWith(".")) files.add(f);
+    }
+  }
+  if (fs.existsSync(SOURCE_ROOT)) {
+    for (const f of fs.readdirSync(SOURCE_ROOT)) {
+      if (f.endsWith(".html") && !f.startsWith(".")) files.add(f);
+    }
+  }
+  return [...files];
+}
+
+function resolveHtmlPath(filename) {
+  const inHtml = path.join(HTML_DIR, filename);
+  if (fs.existsSync(inHtml)) return inHtml;
+  return path.join(SOURCE_ROOT, filename);
+}
+
 function loadRouteMap() {
   /** @type {Record<string, string>} */
   const map = {};
 
-  if (!fs.existsSync(HTML_DIR)) {
+  const files = discoverHtmlFiles();
+  if (files.length === 0) {
     return map;
   }
-
-  const files = fs
-    .readdirSync(HTML_DIR)
-    .filter((f) => f.endsWith(".html") && !f.startsWith("."));
 
   for (const file of files) {
     map[file] = fileToDefaultRoute(file);
@@ -98,18 +116,25 @@ function extractPage(html, filename) {
   const title = titleMatch?.[1]?.trim() ?? "Site 2";
 
   const wrapperStart = html.indexOf('<div id="wrapper">');
+
+  if (wrapperStart === -1) {
+    return {
+      bodyClass,
+      title,
+      html,
+      standalone: true,
+    };
+  }
+
   const scriptStart = html.indexOf("<!-- Javascript -->");
   const fallbackScript = html.indexOf('<script src="js/');
 
   let end = scriptStart > -1 ? scriptStart : fallbackScript;
   if (end < 0) end = html.length;
 
-  let chunk =
-    wrapperStart > -1
-      ? html.slice(wrapperStart, end)
-      : html.slice(html.indexOf("<body"), end);
+  const chunk = html.slice(wrapperStart, end);
 
-  return { bodyClass, title, html: chunk };
+  return { bodyClass, title, html: chunk, standalone: false };
 }
 
 // --- main ---
@@ -129,7 +154,7 @@ if (Object.keys(ROUTE_MAP).length === 0) {
   console.log("Paste your template, then run: pnpm convert-template\n");
 } else {
   for (const [file, route] of Object.entries(ROUTE_MAP)) {
-    const filePath = path.join(HTML_DIR, file);
+    const filePath = resolveHtmlPath(file);
     if (!fs.existsSync(filePath)) {
       console.warn(`Skip missing: ${file}`);
       continue;
@@ -137,7 +162,11 @@ if (Object.keys(ROUTE_MAP).length === 0) {
 
     const raw = fs.readFileSync(filePath, "utf8");
     const page = extractPage(raw, file);
-    page.html = transformHtml(page.html, hrefReplacements);
+    if (!page.standalone) {
+      page.html = transformHtml(page.html, hrefReplacements);
+    } else {
+      page.html = transformHtml(page.html, hrefReplacements);
+    }
     const slug = routeToSlug(route);
 
     fs.writeFileSync(
@@ -151,6 +180,7 @@ if (Object.keys(ROUTE_MAP).length === 0) {
       slug,
       title: page.title,
       bodyClass: page.bodyClass,
+      standalone: !!page.standalone,
     });
 
     console.log(`✓ ${file} → ${route}`);
@@ -172,6 +202,7 @@ export type TemplatePageMeta = {
   slug: string;
   title: string;
   bodyClass: string;
+  standalone: boolean;
 };
 
 export const TEMPLATE_PAGES: TemplatePageMeta[] = ${JSON.stringify(manifest, null, 2)};

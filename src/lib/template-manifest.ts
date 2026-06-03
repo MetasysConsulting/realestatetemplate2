@@ -5,9 +5,27 @@ export type TemplatePageMeta = {
   slug: string;
   title: string;
   bodyClass: string;
+  standalone: boolean;
 };
 
-export const TEMPLATE_PAGES: TemplatePageMeta[] = [];
+export const TEMPLATE_PAGES: TemplatePageMeta[] = [
+  {
+    "route": "/",
+    "file": "foreclosure-prototype.html",
+    "slug": "index",
+    "title": "ForeclosureIQ — Distressed Property Intelligence",
+    "bodyClass": "",
+    "standalone": true
+  },
+  {
+    "route": "/prototype-1",
+    "file": "foreclosure-prototype_1.html",
+    "slug": "prototype-1",
+    "title": "ForeclosureIQ — Distressed Property Intelligence",
+    "bodyClass": "",
+    "standalone": true
+  }
+];
 
 export function getTemplateMetaByRoute(route: string): TemplatePageMeta | undefined {
   return TEMPLATE_PAGES.find((p) => p.route === route);
