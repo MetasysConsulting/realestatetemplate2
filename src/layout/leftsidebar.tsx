@@ -4,23 +4,22 @@
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Card } from "@/components/ui/card";
-import { LayoutDashboard, Wand2, Bot, CreditCard, Settings2, Activity, Gem } from "lucide-react";
+import { LayoutDashboard, Wand2, Bot, CreditCard, Settings2, Activity, Gem, Building2 } from "lucide-react";
+import { REOVANA_BRAND } from "@/lib/reovana-admin-data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import UpdateImg from "@/assets/update1.svg";
-import logo from "../assets/Okyai-logo.png";
-import logo_light from "../assets/logo_light.png";
 import { assetSrc } from "@/lib/utils";
 
 const SIDEBAR_WIDTH_ICON = "6rem"
 
 const menuItems = [
   { title: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-  { title: "Content Tools", path: "/content-tools", icon: Wand2 },
-  { title: "Chatbot", path: "/chatbot", icon: Bot },
+  { title: "Listing Tools", path: "/content-tools", icon: Wand2 },
+  { title: "Admin AI", path: "/chatbot", icon: Bot },
   { title: "Analytics", path: "/analytics", icon: Activity },
-  { title: "Subscription", path: "/subscription", icon: CreditCard },
+  { title: "Plans & Billing", path: "/subscription", icon: CreditCard },
   { title: "Settings", path: "/settings", icon: Settings2 },
 ];
 
@@ -41,11 +40,15 @@ const LeftSidebar = () => {
       } as React.CSSProperties
     }>
       <SidebarHeader>
-        <div className="hidden xl:flex items-center gap-2 px-2 py-3">
-          <img src={assetSrc(logo)} width={60} alt="OkyAI" />
+        <div className="hidden xl:flex flex-col items-center gap-1 px-2 py-3">
+          <div className="flex items-center justify-center size-12 rounded-xl bg-sidebar-foreground/10 border border-sidebar-foreground/20">
+            <Building2 className="size-6 text-sidebar-foreground" />
+          </div>
+          <span className="text-xs font-bold tracking-widest text-sidebar-foreground">{REOVANA_BRAND.name}</span>
         </div>
-        <div className="xl:hidden flex items-center justify-center gap-2 px-2 py-3">
-          <img src={assetSrc(logo_light)} width={200} alt="OkyAI" />
+        <div className="xl:hidden flex flex-col items-center justify-center gap-1 px-2 py-3">
+          <span className="text-lg font-bold tracking-wide text-sidebar-foreground">{REOVANA_BRAND.name}</span>
+          <span className="text-[10px] text-muted-foreground uppercase tracking-wider">Admin</span>
         </div>
       </SidebarHeader>
 
@@ -82,8 +85,8 @@ const LeftSidebar = () => {
             <DropdownMenuContent side="right" align="end" className="w-72">
               <DropdownMenuLabel>
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium">John Doe</p>
-                  <p className="text-xs text-muted-foreground">john@example.com</p>
+                  <p className="text-sm font-medium">REOVANA Admin</p>
+                  <p className="text-xs text-muted-foreground">admin@reovana.com</p>
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
@@ -92,8 +95,8 @@ const LeftSidebar = () => {
               <div className="p-3">
                 <div className="bg-linear-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/20 rounded-lg p-4 text-center">
                   <img src={assetSrc(UpdateImg)} alt="Update" className="h-24 mx-auto mb-3 animate-float block" />
-                  <h5 className="font-semibold text-sm mb-1">Update Pro Plan</h5>
-                  <p className="text-xs text-muted-foreground mb-3">Enhance your experience with the Pro version.</p>
+                  <h5 className="font-semibold text-sm mb-1">Pro Subscriber Tools</h5>
+                  <p className="text-xs text-muted-foreground mb-3">Manage unlock pricing and member plans.</p>
                   <Button className="w-full bg-linear-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white border-0" size="sm" asChild>
                     <Link href="/subscription">Upgrade Now</Link>
                   </Button>
@@ -108,8 +111,8 @@ const LeftSidebar = () => {
           <Card className="p-4 text-center">
             <img src={assetSrc(UpdateImg)} alt="Update" className="h-20 mx-auto mb-3 animate-float block"/>
             <div>
-              <h5 className="font-semibold text-sm mb-1">Update Pro Plan</h5>
-              <p className="text-xs text-muted-foreground mb-3">Enhance your experience with the Pro version.</p>
+              <h5 className="font-semibold text-sm mb-1">Pro Subscriber Tools</h5>
+              <p className="text-xs text-muted-foreground mb-3">Manage unlock pricing and member plans.</p>
             </div>
             <Button className="w-full bg-linear-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white border-0" size="sm" asChild>
               <Link href="/subscription" onClick={handleMenuClick}>Upgrade Now</Link>

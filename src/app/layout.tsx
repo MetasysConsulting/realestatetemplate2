@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "OkyAI — Admin Dashboard",
-  description: "Advanced AI dashboard and chatbot admin panel",
+  title: "REOVANA Admin",
+  description: "Admin dashboard for REOVANA distressed property marketplace",
 };
 
 export default function RootLayout({

@@ -15,8 +15,8 @@ export function ChatbotHeader({ chatbot }: ChatbotHeaderProps) {
   return (
     <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 shrink-0 ${isFullscreen ? "p-6" : ""}`}>
       <div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-white">AI Chatbot</h1>
-        <p className="text-sm sm:text-base text-white/50 mt-1">Ask anything about your data and analytics</p>
+        <h1 className="text-2xl sm:text-3xl font-bold text-white">REOVANA Admin AI</h1>
+        <p className="text-sm sm:text-base text-white/50 mt-1">Ask about listings, feeds, unlocks, and site performance</p>
       </div>
       <div className="flex gap-2">
         <Button variant="outline" size="sm" onClick={() => setIsFullscreen(!isFullscreen)} className="border-primary/30 text-slate-300 hover:bg-primary/10 hover:border-primary">

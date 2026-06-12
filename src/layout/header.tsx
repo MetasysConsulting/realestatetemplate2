@@ -27,7 +27,7 @@ const Header = () => {
 
         <div className="relative w-full max-w-md hidden md:block">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-          <Input type="search" placeholder="Search..." className="pl-9 h-9"/>
+          <Input type="search" placeholder="Search listings, feeds, users..." className="pl-9 h-9"/>
         </div>
       </div>
 

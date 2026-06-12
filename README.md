@@ -1,23 +1,22 @@
-# Site 2 — OkyAI Admin Dashboard (Next.js)
+# Site 2 — REOVANA Admin Dashboard (Next.js)
 
-**OkyAI** advanced AI dashboard and chatbot admin panel, ported from the ThemeForest React template to Next.js with mock data.
+Admin panel for the **REOVANA** distressed property marketplace. Mock data mirrors the public site: HUD homes, VA REO, foreclosure categories, unlock revenue, and scraper feeds.
 
 Repo: [MetasysConsulting/realestatetemplate2](https://github.com/MetasysConsulting/realestatetemplate2)
+
+Public site (REOVANA): `../proty-web` on port 3000.
 
 ## Routes
 
 | Route | Page |
 |-------|------|
-| `/login` | Auth — mock login (redirects to chatbot) |
-| `/register` | Auth — mock registration |
-| `/dashboard` | Main dashboard with charts and stats |
-| `/analytics` | Usage analytics |
-| `/chatbot` | AI chatbot with mock responses |
-| `/content-tools` | Content generation tools |
-| `/subscription` | Plans and billing UI |
+| `/login` | Admin auth — use **Continue without login** for demo |
+| `/dashboard` | Listings, unlocks, revenue, top markets |
+| `/analytics` | Traffic, scraper health, subscription growth |
+| `/content-tools` | Listing tools, scrapers, exports |
+| `/chatbot` | REOVANA Admin AI (mock responses) |
+| `/subscription` | Free / Pro / per-unlock pricing |
 | `/settings` | Account settings |
-
-Site 1 (REOVANA): `../proty-web` on port 3000.
 
 ## Commands
 

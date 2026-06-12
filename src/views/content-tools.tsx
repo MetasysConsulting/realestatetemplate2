@@ -16,134 +16,87 @@ const typedColorMap = colorMap as Record<ColorKey, { bg: string; border: string;
 
 const toolCategories = [
   {
-    id: "search",
-    name: "Search & Discovery",
-    icon: Search,
+    id: "listings",
+    name: "Listing Management",
+    icon: Building2,
     color: "blue-500",
     tools: [
-      { name: "Global Search", icon: Search, desc: "Search across all datasets", prompt: "Help me search for specific data patterns in my analytics" },
-      { name: "AI Semantic Search", icon: Brain, desc: "Natural language queries", prompt: "I need to find insights using natural language queries" },
-      { name: "Quick Filters", icon: Filter, desc: "Instant data filtering", prompt: "Show me how to apply quick filters to my data" },
+      { name: "Browse Inventory", icon: Building2, desc: "All distressed categories", prompt: "Show listing counts across REOVANA buy categories" },
+      { name: "HUD Home Pages", icon: FileText, desc: "807 on-site detail pages", prompt: "Summarize HUD HomeStore inventory and sync status" },
+      { name: "Category Tags", icon: Tag, desc: "Foreclosure, REO, auction", prompt: "Which property categories have the most inventory?" },
+      { name: "Bulk Review", icon: List, desc: "Queue for moderation", prompt: "Help me review newly scraped listings before publish" },
     ]
   },
   {
-    id: "filters",
-    name: "Filters & Sorting",
-    icon: SlidersHorizontal,
+    id: "feeds",
+    name: "Data Sources & Scrapers",
+    icon: RefreshCw,
     color: "purple-500",
     tools: [
-      { name: "Date Range Picker", icon: Calendar, desc: "Select time periods", prompt: "Help me filter data by specific date ranges" },
-      { name: "Advanced Filters", icon: Filter, desc: "Multi-criteria filtering", prompt: "Create advanced filters with multiple conditions" },
-      { name: "Smart Sort", icon: TrendingUp, desc: "AI-powered sorting", prompt: "Sort my data intelligently based on patterns" },
-      { name: "Saved Filters", icon: Save, desc: "Save filter presets", prompt: "How do I save and reuse my filter configurations?" },
+      { name: "Run HUD Scraper", icon: RefreshCw, desc: "HUD HomeStore feed", prompt: "What is the status of the HUD HomeStore data feed?" },
+      { name: "VA REO Feed", icon: Database, desc: "VRM properties", prompt: "Summarize VA REO listings and last sync time" },
+      { name: "HomeSteps Feed", icon: TrendingUp, desc: "Freddie Mac REO", prompt: "How many HomeSteps listings are live?" },
+      { name: "Blocked Sources", icon: Bell, desc: "USDA, HomePath", prompt: "Which data feeds are blocked and why?" },
     ]
   },
   {
-    id: "views",
-    name: "View Controls",
-    icon: Grid3x3,
+    id: "search",
+    name: "Search & Filters",
+    icon: Search,
     color: "green-500",
     tools: [
-      { name: "Grid View", icon: Grid3x3, desc: "Card-based layout", prompt: "How do I optimize my dashboard layout with grid view?" },
-      { name: "List View", icon: List, desc: "Compact table view", prompt: "Show me data in a compact list format" },
-      { name: "Zoom Controls", icon: ZoomIn, desc: "Chart magnification", prompt: "Help me zoom into specific chart details" },
-      { name: "Full Screen", icon: Maximize2, desc: "Expand visualizations", prompt: "How to maximize my visualization workspace?" },
+      { name: "Property Search", icon: Search, desc: "Address, city, case #", prompt: "Help me find a listing by HUD case number or city" },
+      { name: "State Filters", icon: Filter, desc: "Market-level views", prompt: "Which states have the highest foreclosure inventory?" },
+      { name: "Auction Calendar", icon: Calendar, desc: "Upcoming sale dates", prompt: "Show upcoming auction and sheriff sale activity" },
+      { name: "Saved Searches", icon: Save, desc: "Investor alert presets", prompt: "How do Pro users set up saved search alerts?" },
     ]
   },
   {
-    id: "ai-insights",
-    name: "AI Insights",
-    icon: Brain,
+    id: "unlocks",
+    name: "Unlocks & Revenue",
+    icon: Sparkles,
     color: "primary",
     tools: [
-      { name: "Auto Insights", icon: Sparkles, desc: "Generate insights automatically", prompt: "Generate automatic insights from my current data" },
-      { name: "Trend Detection", icon: TrendingUp, desc: "Identify patterns", prompt: "Identify trends and patterns in my analytics data" },
-      { name: "Anomaly Detection", icon: Bell, desc: "Spot unusual data", prompt: "Detect anomalies and unusual patterns in my data" },
-      { name: "Predictions", icon: BarChart3, desc: "Forecast future trends", prompt: "Create predictions and forecasts based on historical data" },
+      { name: "Unlock Report", icon: BarChart3, desc: "Per-property sales", prompt: "Summarize property unlock revenue this month" },
+      { name: "Pro Members", icon: Users, desc: "Subscription accounts", prompt: "How many Pro subscribers do we have and what's churn?" },
+      { name: "Conversion Funnel", icon: TrendingUp, desc: "Views to unlocks", prompt: "What is our listing view to unlock conversion rate?" },
+      { name: "Pricing Review", icon: FileSpreadsheet, desc: "$9 unlock / $49 Pro", prompt: "Compare per-unlock vs Pro subscription revenue" },
     ]
   },
   {
     id: "export",
-    name: "Export Tools",
+    name: "Reports & Export",
     icon: Download,
     color: "amber-500",
     tools: [
-      { name: "Export PNG/JPG", icon: Image, desc: "Save as image", prompt: "How do I export my charts as high-quality images?" },
-      { name: "Export PDF", icon: FileText, desc: "Generate PDF report", prompt: "Generate a comprehensive PDF report of my dashboard" },
-      { name: "Export CSV/XLSX", icon: FileSpreadsheet, desc: "Download data", prompt: "Export my data to CSV or Excel format" },
-      { name: "Export Insights", icon: Brain, desc: "AI analysis report", prompt: "Create an AI-powered analysis report with insights" },
+      { name: "Listing Export", icon: FileSpreadsheet, desc: "CSV of inventory", prompt: "Export current listing inventory to CSV" },
+      { name: "Feed Health PDF", icon: FileText, desc: "Scraper status report", prompt: "Generate a data feed health report" },
+      { name: "Revenue Summary", icon: Image, desc: "Monthly snapshot", prompt: "Create a monthly revenue summary for stakeholders" },
+      { name: "Market Report", icon: Brain, desc: "Top states & categories", prompt: "Generate a top markets report for investors" },
     ]
   },
   {
-    id: "editing",
-    name: "Data Editing",
+    id: "content",
+    name: "Listing Content",
     icon: Edit3,
     color: "pink-500",
     tools: [
-      { name: "Inline Editing", icon: Edit3, desc: "Edit data directly", prompt: "How do I edit data directly in the dashboard?" },
-      { name: "Bulk Operations", icon: Database, desc: "Mass edit/delete", prompt: "Perform bulk operations on multiple data entries" },
-      { name: "Tag Manager", icon: Tag, desc: "Organize with tags", prompt: "Help me organize my data with tags and categories" },
-      { name: "Annotations", icon: MessageSquare, desc: "Add notes to data", prompt: "Add annotations and notes to specific data points" },
+      { name: "Description Writer", icon: Edit3, desc: "AI property blurbs", prompt: "Write a compelling listing description for a bank-owned home" },
+      { name: "Equity Copy", icon: MessageSquare, desc: "Estimate explanations", prompt: "Explain how REOVANA equity estimates work to buyers" },
+      { name: "Category Pages", icon: FileText, desc: "Buy menu content", prompt: "Review copy for foreclosure and HUD category pages" },
+      { name: "Learn Articles", icon: Tag, desc: "Educational guides", prompt: "Suggest topics for new foreclosure education content" },
     ]
   },
   {
-    id: "collaboration",
-    name: "Collaboration",
-    icon: Users,
-    color: "cyan-500",
-    tools: [
-      { name: "Comments", icon: MessageSquare, desc: "Discuss insights", prompt: "How do I add comments and discuss insights with my team?" },
-      { name: "Share Dashboard", icon: Share2, desc: "Share with team", prompt: "Share this dashboard with team members" },
-      { name: "Mentions", icon: Users, desc: "@mention teammates", prompt: "How to mention and notify team members?" },
-      { name: "Access Control", icon: Settings, desc: "Role-based permissions", prompt: "Set up role-based access control for my dashboard" },
-    ]
-  },
-  {
-    id: "customization",
-    name: "Customization",
-    icon: Paintbrush,
-    color: "rose-500",
-    tools: [
-      { name: "Theme Selector", icon: Paintbrush, desc: "Light/Dark modes", prompt: "Help me customize the theme and color scheme" },
-      { name: "Layout Builder", icon: Grid3x3, desc: "Drag & drop widgets", prompt: "Build a custom layout with drag and drop widgets" },
-      { name: "Color Picker", icon: Palette, desc: "Custom accent colors", prompt: "Customize accent colors for my dashboard" },
-      { name: "Save Layouts", icon: Save, desc: "Personal presets", prompt: "Save my current layout as a personal preset" },
-    ]
-  },
-  {
-    id: "performance",
-    name: "Performance",
-    icon: RefreshCw,
-    color: "indigo-500",
-    tools: [
-      { name: "Refresh Data", icon: RefreshCw, desc: "Update dashboard", prompt: "Refresh and update my dashboard data" },
-      { name: "Auto-Refresh", icon: RefreshCw, desc: "Real-time updates", prompt: "Set up automatic real-time data refresh" },
-      { name: "Cache Control", icon: Database, desc: "Clear cached data", prompt: "Clear cache and optimize dashboard performance" },
-      { name: "Data Source Status", icon: BarChart3, desc: "Connection health", prompt: "Check the health status of my data sources" },
-    ]
-  },
-  {
-    id: "integrations",
-    name: "Integrations",
-    icon: Plug,
-    color: "teal-500",
-    tools: [
-      { name: "API Connector", icon: Plug, desc: "Connect external APIs", prompt: "Help me connect external APIs to my dashboard" },
-      { name: "Database Links", icon: Database, desc: "Direct DB access", prompt: "Set up direct database connections" },
-      { name: "Webhooks", icon: Code, desc: "Event triggers", prompt: "Configure webhooks and event triggers" },
-      { name: "Third-party Apps", icon: Building2, desc: "Google Sheets, Excel", prompt: "Integrate with Google Sheets and Excel" },
-    ]
-  },
-  {
-    id: "prompts",
-    name: "Prompt Library",
+    id: "ai",
+    name: "Admin AI Assistant",
     icon: Bot,
     color: "violet-500",
     tools: [
-      { name: "Analysis Prompts", icon: TrendingUp, desc: "Data analysis templates", prompt: "Show me data analysis prompt templates" },
-      { name: "Writing Prompts", icon: FileText, desc: "Content generation", prompt: "Generate content using AI writing prompts" },
-      { name: "Coding Prompts", icon: Code, desc: "SQL & code helpers", prompt: "Help me write SQL queries and code" },
-      { name: "AI Agents", icon: Bot, desc: "Specialized assistants", prompt: "Connect me with specialized AI agents for specific tasks" },
+      { name: "Platform Summary", icon: Bot, desc: "Full site snapshot", prompt: "Summarize REOVANA platform metrics" },
+      { name: "Feed Diagnostics", icon: Code, desc: "Scraper troubleshooting", prompt: "Which data feeds are blocked?" },
+      { name: "Investor Insights", icon: TrendingUp, desc: "Market trends", prompt: "Top foreclosure markets this month" },
+      { name: "Revenue Analysis", icon: BarChart3, desc: "Unlocks vs subs", prompt: "Unlock revenue vs subscriptions breakdown" },
     ]
   },
 ]
@@ -176,8 +129,8 @@ const ContentTools = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-white">Content Tools</h1>
-          <p className="text-sm sm:text-base text-white/50 mt-1">Complete toolkit for data management and AI assistance</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-white">Listing Tools</h1>
+          <p className="text-sm sm:text-base text-white/50 mt-1">Manage inventory, scrapers, unlocks, and listing content for REOVANA</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" size="sm" className="border-primary/30 text-slate-300 hover:bg-primary/10"

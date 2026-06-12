@@ -70,9 +70,9 @@ const Login = () => {
       <div className="w-full max-w-md relative mx-auto lg:ml-48 z-10">
         <Card className="backdrop-blur-md bg-card">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-center">Welcome Back</CardTitle>
+            <CardTitle className="text-2xl font-bold text-center">REOVANA Admin</CardTitle>
             <CardDescription className="text-center">
-              Enter your credentials to access your account
+              Sign in to manage listings, feeds, and site analytics
             </CardDescription>
           </CardHeader>
           <CardContent>

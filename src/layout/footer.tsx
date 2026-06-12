@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center md:text-left">
             <p className="text-white/50 text-sm">
-              © {(new Date().getFullYear())} OkyAi. All Rights Reserved.
+              © {(new Date().getFullYear())} REOVANA. All Rights Reserved.
             </p>
           </div>
 

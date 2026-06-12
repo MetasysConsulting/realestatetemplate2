@@ -57,8 +57,8 @@ const getCroppedImg = async (
 };
 
 const Settings = () => {
-    const [name, setName] = useState("John Doe")
-    const [email, setEmail] = useState("john.doe@example.com")
+    const [name, setName] = useState("REOVANA Admin")
+    const [email, setEmail] = useState("admin@reovana.com")
     const [language, setLanguage] = useState("en")
     const [timezone, setTimezone] = useState("utc")
 
