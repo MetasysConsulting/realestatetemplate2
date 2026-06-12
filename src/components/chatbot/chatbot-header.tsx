@@ -37,7 +37,7 @@ export function ChatbotHeader({ chatbot }: ChatbotHeaderProps) {
             </DropdownMenuItem>
             <DropdownMenuItem
               onClick={() =>
-                navigator.share?.({ title: "AI Chat", text: messages.map((m) => m.content).join("\n") }).catch(() => {})
+                navigator.share?.({ title: "REOVANA Admin AI", text: messages.map((m) => m.content).join("\n") }).catch(() => {})
               }
             >
               <Share2 className="h-4 w-4 " /> Share Chat

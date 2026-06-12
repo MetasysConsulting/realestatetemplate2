@@ -4,8 +4,9 @@
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Card } from "@/components/ui/card";
-import { LayoutDashboard, Wand2, Bot, CreditCard, Settings2, Activity, Gem, Building2 } from "lucide-react";
+import { LayoutDashboard, Wand2, Bot, CreditCard, Settings2, Activity, Gem, Home, Database } from "lucide-react";
 import { REOVANA_BRAND } from "@/lib/reovana-admin-data";
+import { ReovanaLogo } from "@/components/reovana-logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,8 @@ const SIDEBAR_WIDTH_ICON = "6rem"
 
 const menuItems = [
   { title: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+  { title: "Listings", path: "/listings", icon: Home },
+  { title: "Data Sources", path: "/data-sources", icon: Database },
   { title: "Listing Tools", path: "/content-tools", icon: Wand2 },
   { title: "Admin AI", path: "/chatbot", icon: Bot },
   { title: "Analytics", path: "/analytics", icon: Activity },
@@ -40,15 +43,13 @@ const LeftSidebar = () => {
       } as React.CSSProperties
     }>
       <SidebarHeader>
-        <div className="hidden xl:flex flex-col items-center gap-1 px-2 py-3">
-          <div className="flex items-center justify-center size-12 rounded-xl bg-sidebar-foreground/10 border border-sidebar-foreground/20">
-            <Building2 className="size-6 text-sidebar-foreground" />
-          </div>
-          <span className="text-xs font-bold tracking-widest text-sidebar-foreground">{REOVANA_BRAND.name}</span>
+        <div className="hidden xl:flex flex-col items-center px-2 py-3">
+          <ReovanaLogo size="sm" showTagline />
+          <span className="text-[10px] text-muted-foreground uppercase tracking-wider mt-2">Admin</span>
         </div>
-        <div className="xl:hidden flex flex-col items-center justify-center gap-1 px-2 py-3">
-          <span className="text-lg font-bold tracking-wide text-sidebar-foreground">{REOVANA_BRAND.name}</span>
-          <span className="text-[10px] text-muted-foreground uppercase tracking-wider">Admin</span>
+        <div className="xl:hidden flex flex-col items-center justify-center px-2 py-3">
+          <ReovanaLogo size="md" />
+          <span className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">Admin</span>
         </div>
       </SidebarHeader>
 
@@ -85,8 +86,8 @@ const LeftSidebar = () => {
             <DropdownMenuContent side="right" align="end" className="w-72">
               <DropdownMenuLabel>
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium">REOVANA Admin</p>
-                  <p className="text-xs text-muted-foreground">admin@reovana.com</p>
+                  <p className="text-sm font-medium">{REOVANA_BRAND.adminUser.name}</p>
+                  <p className="text-xs text-muted-foreground">{REOVANA_BRAND.adminUser.email}</p>
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />

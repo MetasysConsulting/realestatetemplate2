@@ -138,8 +138,8 @@ const Settings = () => {
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl sm:text-3xl font-bold text-white">Settings</h1>
-                    <p className="text-sm sm:text-base text-white/50 mt-1">Manage your account settings and preferences</p>
+                    <h1 className="text-2xl sm:text-3xl font-bold text-white">Site Settings</h1>
+                    <p className="text-sm sm:text-base text-white/50 mt-1">REOVANA admin profile, alerts, and marketplace display options</p>
                 </div>
                 <Button className="bg-linear-to-r from-primary to-purple-600 hover:from-purple-600 hover:to-primary text-white shadow-lg w-full sm:w-auto">
                     <Save className="h-4 w-4" /> Save All Changes
@@ -157,8 +157,8 @@ const Settings = () => {
                                     <User className="h-5 w-5 text-primary" />
                                 </div>
                                 <div>
-                                    <CardTitle className="text-white mb-1">Profile Information</CardTitle>
-                                    <CardDescription>Update your personal details</CardDescription>
+                                    <CardTitle className="text-white mb-1">Admin Profile</CardTitle>
+                                    <CardDescription>REOVANA operations team contact</CardDescription>
                                 </div>
                             </div>
                         </CardHeader>
@@ -172,8 +172,8 @@ const Settings = () => {
                                             className="h-20 w-20 rounded-full object-cover shadow-lg"
                                         />
                                     ) : (
-                                        <div className="h-20 w-20 rounded-full bg-linear-to-br from-primary via-purple-500 to-purple-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
-                                            JD
+                                        <div className="h-20 w-20 rounded-full bg-linear-to-br from-primary to-sidebar-primary flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                                            RA
                                         </div>
                                     )}
                                     <div className="space-y-2">
@@ -213,8 +213,8 @@ const Settings = () => {
                                     </div>
 
                                     <div className="space-y-2">
-                                        <Label htmlFor="company" className="text-slate-300">Company</Label>
-                                        <Input id="company" placeholder="Your company name..." required/>
+                                        <Label htmlFor="company" className="text-slate-300">Organization</Label>
+                                        <Input id="company" defaultValue="REOVANA Operations" placeholder="Team or agency name..." required/>
                                     </div>
                                 </div>
 
@@ -288,8 +288,8 @@ const Settings = () => {
                                     <Bell className="h-5 w-5 text-purple-500" />
                                 </div>
                                 <div>
-                                    <CardTitle className="text-white mb-1">Notification Preferences</CardTitle>
-                                    <CardDescription>Choose what notifications you want to receive</CardDescription>
+                                    <CardTitle className="text-white mb-1">Admin Alerts</CardTitle>
+                                    <CardDescription>Scraper, unlock, and subscriber notifications</CardDescription>
                                 </div>
                             </div>
                         </CardHeader>
@@ -299,8 +299,8 @@ const Settings = () => {
                                     <div className="flex items-center gap-3">
                                         <Mail className="h-5 w-5 text-white/50" />
                                         <div>
-                                            <p className="text-base font-medium text-white">Email Notifications</p>
-                                            <p className="text-sm text-white/50">Receive notifications via email</p>
+                                            <p className="text-base font-medium text-white">Scraper failure emails</p>
+                                            <p className="text-sm text-white/50">When a data feed fails or returns zero listings</p>
                                         </div>
                                     </div>
                                     <Switch checked={emailNotifications} onCheckedChange={setEmailNotifications}/>
@@ -310,8 +310,8 @@ const Settings = () => {
                                     <div className="flex items-center gap-3">
                                         <Smartphone className="h-5 w-5 text-white/50" />
                                         <div>
-                                            <p className="text-base font-medium text-white">Push Notifications</p>
-                                            <p className="text-sm text-white/50">Get push notifications on your device</p>
+                                            <p className="text-base font-medium text-white">Unlock & revenue alerts</p>
+                                            <p className="text-sm text-white/50">New property unlocks and Pro signups</p>
                                         </div>
                                     </div>
                                     <Switch checked={pushNotifications} onCheckedChange={setPushNotifications}/>
@@ -321,8 +321,8 @@ const Settings = () => {
                                     <div className="flex items-center gap-3">
                                         <Zap className="h-5 w-5 text-white/50" />
                                         <div>
-                                            <p className="text-base font-medium text-white">Product Updates</p>
-                                            <p className="text-sm text-white/50">News about new features and updates</p>
+                                            <p className="text-base font-medium text-white">High-traffic markets</p>
+                                            <p className="text-sm text-white/50">When a state exceeds view thresholds</p>
                                         </div>
                                     </div>
                                     <Switch checked={productUpdates} onCheckedChange={setProductUpdates}/>
@@ -353,22 +353,22 @@ const Settings = () => {
                                     <CheckCircle2 className="h-5 w-5 text-green-500" />
                                 </div>
                                 <div>
-                                    <p className="text-base font-medium text-white">Account Status</p>
-                                    <p className="text-sm text-white/50">Active & Verified</p>
+                                    <p className="text-base font-medium text-white">Public site status</p>
+                                    <p className="text-sm text-white/50">Live · 2,142 listings</p>
                                 </div>
                             </div>
                             <div className="space-y-2 text-sm text-white/50">
                                 <div className="flex justify-between">
-                                    <span>Member since:</span>
-                                    <span className="text-white">Jan 2024</span>
+                                    <span>Active feeds:</span>
+                                    <span className="text-white">5 of 7</span>
                                 </div>
                                 <div className="flex justify-between">
-                                    <span>Plan:</span>
-                                    <span className="text-green-500 font-medium">Professional</span>
+                                    <span>Unlock price:</span>
+                                    <span className="text-green-500 font-medium">$9 / property</span>
                                 </div>
                                 <div className="flex justify-between">
-                                    <span>Storage used:</span>
-                                    <span className="text-white">2.4 GB / 10 GB</span>
+                                    <span>Pro plan:</span>
+                                    <span className="text-white">$49 / month</span>
                                 </div>
                             </div>
                         </CardContent>
@@ -382,8 +382,8 @@ const Settings = () => {
                                     <CreditCard className="h-5 w-5 text-blue-500" />
                                 </div>
                                 <div>
-                                    <CardTitle className="text-white mb-1">Billing</CardTitle>
-                                    <CardDescription>Manage payment methods</CardDescription>
+                                    <CardTitle className="text-white mb-1">Marketplace pricing</CardTitle>
+                                    <CardDescription>Displayed on the public REOVANA site</CardDescription>
                                 </div>
                             </div>
                         </CardHeader>
@@ -392,13 +392,15 @@ const Settings = () => {
                                 <div className="flex items-center justify-between mb-2">
                                     <div className="flex items-center gap-2">
                                         <CreditCard className="h-4 w-4 text-white/50" />
-                                        <span className="text-sm text-white">•••• 4242</span>
+                                        <span className="text-sm text-white">Per unlock</span>
                                     </div>
-                                    <span className="text-xs text-white/50">Expires 12/25</span>
+                                    <span className="text-xs text-white/50">$9.00</span>
                                 </div>
-                                <p className="text-xs text-slate-500">Primary payment method</p>
+                                <p className="text-xs text-slate-500">Pro unlimited — $49/mo</p>
                             </div>
-                            <Button variant="outline" className="w-full border-primary/50 hover:bg-primary/10">Manage Billing</Button>
+                            <Button variant="outline" className="w-full border-primary/50 hover:bg-primary/10" asChild>
+                                <a href="/subscription">Edit plans & billing UI</a>
+                            </Button>
                         </CardContent>
                     </Card>
 
@@ -433,8 +435,8 @@ const Settings = () => {
                                     <div className="flex items-center gap-3">
                                         <Database className="h-5 w-5 text-white/50" />
                                         <div>
-                                            <p className="text-sm font-medium text-white">Data Sharing</p>
-                                            <p className="text-xs text-white/50">Share anonymous usage data</p>
+                                            <p className="text-sm font-medium text-white">Blur addresses on browse</p>
+                                            <p className="text-xs text-white/50">Hide full address until unlock (public site)</p>
                                         </div>
                                     </div>
                                     <Switch checked={dataSharing} onCheckedChange={setDataSharing}/>
@@ -457,13 +459,13 @@ const Settings = () => {
                     {/* Danger Zone */}
                     <Card className="border-red-500/40 bg-red-500/5">
                         <CardHeader>
-                            <CardTitle className="text-red-400 text-sm">Danger Zone</CardTitle>
+                            <CardTitle className="text-red-400 text-sm">Maintenance</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-3">
                             <Button variant="outline" className="w-full border-red-500/30 text-red-400 hover:bg-red-500/10 hover:border-red-500">
-                                <Trash2 className="h-4 w-4" /> Delete Account
+                                <Trash2 className="h-4 w-4" /> Clear demo cache
                             </Button>
-                            <p className="text-xs text-white/50">Once deleted, your account cannot be recovered</p>
+                            <p className="text-xs text-white/50">Resets local UI state only — no backend connected</p>
                         </CardContent>
                     </Card>
                 </div>

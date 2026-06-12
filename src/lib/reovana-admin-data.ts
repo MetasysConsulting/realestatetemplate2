@@ -11,9 +11,69 @@ import {
 export const REOVANA_BRAND = {
   name: "REOVANA",
   tagline: "Distressed property intelligence",
+  headline: "Find great deals. Create real value.",
   adminTitle: "REOVANA Admin",
   publicSiteUrl: "https://reovana.com",
+  localPublicSiteUrl: "http://localhost:3000",
+  primaryColor: "#7695ff",
+  adminUser: { name: "REOVANA Admin", email: "admin@reovana.com", role: "Site Administrator" },
 } as const;
+
+export const ADMIN_NOTIFICATIONS = [
+  { title: "HUD scrape completed", detail: "807 listings synced", time: "8 min ago", type: "success" as const },
+  { title: "Property unlock", detail: "investor.fl@email.com — Tampa, FL", time: "22 min ago", type: "revenue" as const },
+  { title: "Fannie Mae HomePath blocked", detail: "CloudFront 403 — manual review needed", time: "41 min ago", type: "warning" as const },
+  { title: "New Pro subscriber", detail: "sarah.m@email.com", time: "1h ago", type: "success" as const },
+  { title: "VA REO feed refreshed", detail: "800 listings updated", time: "2h ago", type: "success" as const },
+];
+
+export const MOCK_LISTINGS = [
+  { id: "HUD-094-123456", category: "HUD Home", city: "Tampa", state: "FL", price: "$142,000", status: "Published", views: 284, unlocks: 12 },
+  { id: "VA-REO-8821", category: "Bank Owned", city: "Jacksonville", state: "FL", price: "$98,500", status: "Published", views: 196, unlocks: 8 },
+  { id: "FC-2024-44102", category: "Foreclosure", city: "Cleveland", state: "OH", price: "$67,200", status: "Published", views: 412, unlocks: 19 },
+  { id: "HS-475-019", category: "HomeSteps", city: "Austin", state: "TX", price: "$215,000", status: "Published", views: 158, unlocks: 6 },
+  { id: "AUC-8844", category: "Auction", city: "Atlanta", state: "GA", price: "$124,900", status: "Pending review", views: 89, unlocks: 3 },
+  { id: "PRE-9921", category: "Pre-Foreclosure", city: "Phoenix", state: "AZ", price: "$189,000", status: "Published", views: 221, unlocks: 11 },
+  { id: "TAX-4410", category: "Tax Delinquent", city: "Kansas City", state: "MO", price: "$54,800", status: "Published", views: 134, unlocks: 7 },
+  { id: "HUD-094-998812", category: "HUD Home", city: "Las Vegas", state: "NV", price: "$176,500", status: "Published", views: 302, unlocks: 14 },
+  { id: "OFF-2201", category: "Off-Market", city: "Charlotte", state: "NC", price: "$203,000", status: "Draft", views: 0, unlocks: 0 },
+  { id: "MOT-1188", category: "Motivated Seller", city: "Nashville", state: "TN", price: "$165,000", status: "Published", views: 97, unlocks: 4 },
+  { id: "SHER-330", category: "Sheriff's Sale", city: "Columbus", state: "OH", price: "$72,400", status: "Published", views: 178, unlocks: 9 },
+  { id: "GSA-048-2", category: "Government Auction", city: "Denver", state: "CO", price: "$310,000", status: "Published", views: 64, unlocks: 2 },
+];
+
+export const BUY_MENU_CATEGORIES = [
+  "Motivated Seller", "Off-Market", "Foreclosure", "Pre-Foreclosure",
+  "Bank Owned", "Auction Property", "Sheriff's Sale", "Tax Delinquent", "HUD Home",
+];
+
+export const SUBSCRIPTION_FAQ = [
+  {
+    q: "Can investors switch between per-unlock and Pro?",
+    a: "Yes. Pro members skip per-unlock fees while active. Lapsed subscribers can still pay $9 per property.",
+  },
+  {
+    q: "What payment methods are supported?",
+    a: "Stripe checkout for cards and digital wallets. Wire transfer available for bulk investor accounts.",
+  },
+  {
+    q: "Is browsing free on the public site?",
+    a: "Yes. Users can search categories and see blurred previews. Full address and contact require unlock or Pro.",
+  },
+  {
+    q: "What happens when a listing is removed at source?",
+    a: "The admin feed marks it inactive on the next scrape. Unlocked buyers retain their purchased detail snapshot.",
+  },
+];
+
+export const SITE_SETTINGS_DEFAULTS = {
+  unlockPrice: 9,
+  proMonthlyPrice: 49,
+  blurAddresses: true,
+  showEquityEstimates: true,
+  autoPublishScraped: true,
+  scraperSchedule: "Every 6 hours",
+};
 
 /** Mirrors live scraper inventory on the public site (mock admin snapshot). */
 export const DATA_SOURCE_FEEDS = [

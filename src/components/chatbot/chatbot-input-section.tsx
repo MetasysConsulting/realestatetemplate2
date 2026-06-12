@@ -62,7 +62,7 @@ export function ChatbotInputSection({ chatbot }: ChatbotInputSectionProps) {
             }}
             onSend={handleSendMessage}
             isLoading={isLoading}
-            placeholder="Ask anything..."
+            placeholder="Ask about listings, feeds, or revenue..."
           />
         </motion.div>
 

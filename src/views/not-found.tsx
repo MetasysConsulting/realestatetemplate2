@@ -67,7 +67,7 @@ const NotFound = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              Oops! The page you're looking for has vanished into the void. It might have been moved, deleted, or never existed.
+              This admin route does not exist. Check the sidebar for listings, data sources, analytics, and settings.
             </motion.p>
             <motion.div className="flex gap-4 justify-center pt-6"
               initial={{ opacity: 0, y: 10 }}
@@ -75,7 +75,7 @@ const NotFound = () => {
               transition={{ delay: 0.6 }}
             >
               <Button onClick={() => router.back()} variant="outline" className="border-primary/30 hover:bg-primary/10 hover:border-primary/50">Go Back</Button>
-              <Button onClick={() => router.push('/')} className="bg-primary hover:bg-primary/90 text-white">Go Home</Button>
+              <Button onClick={() => router.push('/dashboard')} className="bg-primary hover:bg-primary/90 text-white">Go to dashboard</Button>
             </motion.div>
           </motion.div>
         </CardContent>

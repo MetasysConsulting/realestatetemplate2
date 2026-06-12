@@ -185,8 +185,8 @@ const ContentTools = () => {
                 <Settings className="h-4 w-4 sm:h-6 sm:w-6 text-primary" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-bold text-white">45+</p>
-                <p className="text-sm text-white/50">Total Tools</p>
+                <p className="text-xl sm:text-2xl font-bold text-white">28</p>
+                <p className="text-sm text-white/50">Listing tools</p>
               </div>
             </div>
           </CardContent>
@@ -198,8 +198,8 @@ const ContentTools = () => {
                 <Brain className="h-4 w-4 sm:h-6 sm:w-6 text-blue-400" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-bold text-white">12</p>
-                <p className="text-sm text-white/50">AI-Powered</p>
+                <p className="text-xl sm:text-2xl font-bold text-white">9</p>
+                <p className="text-sm text-white/50">Buy categories</p>
               </div>
             </div>
           </CardContent>
@@ -211,8 +211,8 @@ const ContentTools = () => {
                 <Plug className="h-4 w-4 sm:h-6 sm:w-6 text-green-400" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-bold text-white">8</p>
-                <p className="text-sm text-white/50">Integrations</p>
+                <p className="text-xl sm:text-2xl font-bold text-white">7</p>
+                <p className="text-sm text-white/50">Data feeds</p>
               </div>
             </div>
           </CardContent>
@@ -224,8 +224,8 @@ const ContentTools = () => {
                 <Users className="h-4 w-4 sm:h-6 sm:w-6 text-amber-400" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-bold text-white">5</p>
-                <p className="text-sm text-white/50">Collaboration</p>
+                <p className="text-xl sm:text-2xl font-bold text-white">4</p>
+                <p className="text-sm text-white/50">Admin AI prompts</p>
               </div>
             </div>
           </CardContent>

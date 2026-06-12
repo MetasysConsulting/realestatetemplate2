@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, Crown, Zap, Rocket, Star, Shield, Clock, Users, Sparkles, TrendingUp, CreditCard, Calendar, ArrowRight, Info } from "lucide-react";
+import { SUBSCRIPTION_FAQ } from "@/lib/reovana-admin-data";
 
 const pricingPlans = [
   {
@@ -226,8 +227,8 @@ const Subscription = () => {
       {/* Features Grid */}
       <Card>
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl text-white">Why Choose Our Platform?</CardTitle>
-          <p className="text-white/50 mt-2">Everything you need to power your AI applications</p>
+          <CardTitle className="text-2xl text-white">Why investors choose REOVANA</CardTitle>
+          <p className="text-white/50 mt-2">Distressed inventory, blurred previews, and paid unlocks for serious buyers</p>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -251,53 +252,19 @@ const Subscription = () => {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 mt-1">
-                  <Info className="h-4 w-4 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">Can I change plans anytime?</h4>
-                  <p className="text-sm text-white/50">Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 mt-1">
-                  <Info className="h-4 w-4 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">What payment methods do you accept?</h4>
-                  <p className="text-sm text-white/50">We accept all major credit cards, PayPal, and wire transfers for enterprise plans.</p>
+            {SUBSCRIPTION_FAQ.map((item) => (
+              <div key={item.q} className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 mt-1">
+                    <Info className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">{item.q}</h4>
+                    <p className="text-sm text-white/50">{item.a}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 mt-1">
-                  <Info className="h-4 w-4 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">Is there a free trial?</h4>
-                  <p className="text-sm text-white/50">Our Starter plan is free forever. Professional and Enterprise plans offer 14-day trials.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 mt-1">
-                  <Info className="h-4 w-4 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">What happens if I exceed my limit?</h4>
-                  <p className="text-sm text-white/50">You'll be notified and can upgrade your plan or purchase additional requests as needed.</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </CardContent>
       </Card>
@@ -305,13 +272,17 @@ const Subscription = () => {
       {/* CTA Section */}
       <Card className="bg-linear-to-r from-primary/10 to-purple-500/10 border-primary/30">
         <CardContent className="py-6 text-center space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">Ready to Get Started?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white">Preview public pricing</h2>
           <p className="text-sm sm:text-base text-white/70 max-w-2xl mx-auto px-4">
-            Illustrative pricing UI—replace copy and limits with your product rules.
+            These plans mirror what investors see on the REOVANA marketplace. Wire Stripe when backend is ready.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button size="lg" className="bg-linear-to-r from-primary to-purple-500 hover:from-purple-500 text-white hover:to-primary w-full sm:w-auto"><Sparkles className="h-5 w-5" /> Start trial</Button>
-            <Button size="lg" variant="outline" className="w-full sm:w-auto">Contact Sales</Button>
+            <Button size="lg" className="bg-linear-to-r from-primary to-sidebar-primary text-white w-full sm:w-auto" asChild>
+              <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer"><Sparkles className="h-5 w-5" /> Open public site</a>
+            </Button>
+            <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
+              <a href="/settings">Edit display settings</a>
+            </Button>
           </div>
         </CardContent>
       </Card>

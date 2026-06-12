@@ -4,7 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { XAxis, YAxis, Bar, BarChart, Line, LineChart } from "recharts";
-import { MessageSquare, FileText, MapPin, Building2, Sparkles, ArrowUpRight, ArrowDownRight, TrendingUp, Clock, CheckCircle2, AlertCircle, MoreVertical, CalendarDays, CalendarRange, History, Clock10, Calendar, Zap, LayoutList, Trophy, BarChart3, RefreshCw, Database } from "lucide-react";
+import Link from "next/link";
+import { MessageSquare, FileText, MapPin, Building2, ArrowUpRight, ArrowDownRight, TrendingUp, Clock, CheckCircle2, AlertCircle, MoreVertical, CalendarDays, CalendarRange, History, Clock10, Calendar, Zap, LayoutList, Trophy, BarChart3, RefreshCw } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import {
   adminChartConfig as chartConfig,
@@ -35,10 +36,12 @@ const Dashboard = () => {
             <span className="hidden sm:inline">Last 7 days</span>
             <span className="sm:hidden">7 days</span>
           </Button>
-          <Button className="bg-linear-to-r from-primary to-sidebar-primary hover:from-sidebar-primary hover:to-primary text-white border-0 flex-1 sm:flex-none text-xs sm:text-sm">
-            <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4" />
-            <span className="hidden sm:inline">View Reports</span>
-            <span className="sm:hidden">Reports</span>
+          <Button className="bg-linear-to-r from-primary to-sidebar-primary hover:from-sidebar-primary hover:to-primary text-white border-0 flex-1 sm:flex-none text-xs sm:text-sm" asChild>
+            <Link href="/analytics">
+              <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="hidden sm:inline">View Reports</span>
+              <span className="sm:hidden">Reports</span>
+            </Link>
           </Button>
         </div>
       </div>
@@ -280,21 +283,29 @@ const Dashboard = () => {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
-            <Button variant="outline" className="h-auto flex-col gap-1.5 sm:gap-2 py-3 sm:py-4 bg-primary/5 border-primary/30 text-slate-200 hover:bg-primary/10 hover:border-primary hover:text-white transition-all">
-              <RefreshCw className="h-4! w-4! sm:h-5! sm:w-5! text-primary" />
-              <span className="text-xs sm:text-sm">Run Scrapers</span>
+            <Button variant="outline" className="h-auto flex-col gap-1.5 sm:gap-2 py-3 sm:py-4 bg-primary/5 border-primary/30 text-slate-200 hover:bg-primary/10 hover:border-primary hover:text-white transition-all" asChild>
+              <Link href="/data-sources">
+                <RefreshCw className="h-4! w-4! sm:h-5! sm:w-5! text-primary" />
+                <span className="text-xs sm:text-sm">Run Scrapers</span>
+              </Link>
             </Button>
-            <Button variant="outline" className="h-auto flex-col gap-1.5 sm:gap-2 py-3 sm:py-4 bg-primary/5 border-primary/30 text-slate-200 hover:bg-primary/10 hover:border-primary hover:text-white transition-all">
-              <Building2 className="h-4! w-4! sm:h-5! sm:w-5! text-primary" />
-              <span className="text-xs sm:text-sm">Manage Listings</span>
+            <Button variant="outline" className="h-auto flex-col gap-1.5 sm:gap-2 py-3 sm:py-4 bg-primary/5 border-primary/30 text-slate-200 hover:bg-primary/10 hover:border-primary hover:text-white transition-all" asChild>
+              <Link href="/listings">
+                <Building2 className="h-4! w-4! sm:h-5! sm:w-5! text-primary" />
+                <span className="text-xs sm:text-sm">Manage Listings</span>
+              </Link>
             </Button>
-            <Button variant="outline" className="h-auto flex-col gap-1.5 sm:gap-2 py-3 sm:py-4 bg-primary/5 border-primary/30 text-slate-200 hover:bg-primary/10 hover:border-primary hover:text-white transition-all">
-              <MessageSquare className="h-4! w-4! sm:h-5! sm:w-5! text-primary" />
-              <span className="text-xs sm:text-sm">Ask Admin AI</span>
+            <Button variant="outline" className="h-auto flex-col gap-1.5 sm:gap-2 py-3 sm:py-4 bg-primary/5 border-primary/30 text-slate-200 hover:bg-primary/10 hover:border-primary hover:text-white transition-all" asChild>
+              <Link href="/chatbot">
+                <MessageSquare className="h-4! w-4! sm:h-5! sm:w-5! text-primary" />
+                <span className="text-xs sm:text-sm">Ask Admin AI</span>
+              </Link>
             </Button>
-            <Button variant="outline" className="h-auto flex-col gap-1.5 sm:gap-2 py-3 sm:py-4 bg-primary/5 border-primary/30 text-slate-200 hover:bg-primary/10 hover:border-primary hover:text-white transition-all">
-              <FileText className="h-4! w-4! sm:h-5! sm:w-5! text-primary" />
-              <span className="text-xs sm:text-sm">View Analytics</span>
+            <Button variant="outline" className="h-auto flex-col gap-1.5 sm:gap-2 py-3 sm:py-4 bg-primary/5 border-primary/30 text-slate-200 hover:bg-primary/10 hover:border-primary hover:text-white transition-all" asChild>
+              <Link href="/analytics">
+                <FileText className="h-4! w-4! sm:h-5! sm:w-5! text-primary" />
+                <span className="text-xs sm:text-sm">View Analytics</span>
+              </Link>
             </Button>
           </div>
         </CardContent>

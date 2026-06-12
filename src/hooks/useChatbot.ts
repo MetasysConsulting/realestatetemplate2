@@ -89,7 +89,7 @@ export function useChatbot() {
         id: "1",
         role: "assistant",
         content:
-          "Hi! I'm your AI assistant. I can help you with analysis, writing, coding, data queries, and more. What would you like to know?",
+          "Hi! I'm the REOVANA Admin AI. Ask about listings, data feeds, unlock revenue, top markets, or scraper health.",
         timestamp: new Date(),
       },
     ]);
@@ -215,7 +215,7 @@ export function useChatbot() {
     const chatText = messages
       .map(
         (msg) =>
-          `${msg.role === "user" ? "You" : "AI"} (${msg.timestamp.toLocaleString()}):\n${msg.content}\n`,
+          `${msg.role === "user" ? "You" : "REOVANA Admin AI"} (${msg.timestamp.toLocaleString()}):\n${msg.content}\n`,
       )
       .join("\n---\n\n");
     const blob = new Blob([chatText], { type: "text/plain" });
