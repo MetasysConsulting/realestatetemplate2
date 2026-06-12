@@ -102,6 +102,18 @@ const Login = () => {
               {/* Login Button */}
               <Button type="submit" className="w-full text-white" size="lg">Login</Button>
 
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full"
+                onClick={() => router.push("/dashboard")}
+              >
+                Continue without login
+              </Button>
+              <p className="text-center text-xs text-muted-foreground">
+                No backend yet — use this to explore the dashboard.
+              </p>
+
               {/* Social Login Buttons */}
               <div className="grid grid-cols-2 gap-3">
                 <Button type="button" variant="outline">
