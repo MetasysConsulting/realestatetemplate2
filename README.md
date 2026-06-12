@@ -1,24 +1,28 @@
-# Site 2 — ForeclosureIQ (Next.js)
+# Site 2 — OkyAI Admin Dashboard (Next.js)
 
-**ForeclosureIQ** distressed property intelligence prototype, ported from standalone HTML.
-
-| Route | Source file |
-|-------|-------------|
-| `/` | `foreclosure-prototype.html` |
-| `/prototype-1` | `foreclosure-prototype_1.html` |
+**OkyAI** advanced AI dashboard and chatbot admin panel, ported from the ThemeForest React template to Next.js with mock data.
 
 Repo: [MetasysConsulting/realestatetemplate2](https://github.com/MetasysConsulting/realestatetemplate2)
+
+## Routes
+
+| Route | Page |
+|-------|------|
+| `/login` | Auth — mock login (redirects to chatbot) |
+| `/register` | Auth — mock registration |
+| `/dashboard` | Main dashboard with charts and stats |
+| `/analytics` | Usage analytics |
+| `/chatbot` | AI chatbot with mock responses |
+| `/content-tools` | Content generation tools |
+| `/subscription` | Plans and billing UI |
+| `/settings` | Account settings |
+
+Site 1 (REOVANA): `../proty-web` on port 3000.
 
 ## Commands
 
 ```bash
-pnpm convert-template   # Re-import HTML from template-source/
-pnpm dev                # http://localhost:3001
+pnpm dev      # http://localhost:3001
 pnpm build
+pnpm start
 ```
-
-## Add more pages
-
-Put `.html` in `template-source/html/` and optional paths in `template-source/routes.json`, then run `pnpm convert-template`.
-
-Site 1 (Proty): `../proty-web` on port 3000.
