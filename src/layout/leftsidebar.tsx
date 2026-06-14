@@ -4,7 +4,7 @@
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Card } from "@/components/ui/card";
-import { LayoutDashboard, Wand2, Bot, CreditCard, Settings2, Activity, Gem, Home, Database } from "lucide-react";
+import { LayoutDashboard, Wand2, Bot, CreditCard, Settings2, Activity, Gem, Home, Database, Building2, Users, Mail } from "lucide-react";
 import { REOVANA_BRAND } from "@/lib/reovana-admin-data";
 import { ReovanaLogo } from "@/components/reovana-logo";
 import Link from "next/link";
@@ -16,9 +16,12 @@ import { assetSrc } from "@/lib/utils";
 const SIDEBAR_WIDTH_ICON = "6rem"
 
 const menuItems = [
+  { title: "Home", path: "/home", icon: Home },
   { title: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-  { title: "Listings", path: "/listings", icon: Home },
+  { title: "Listings", path: "/listings", icon: Building2 },
   { title: "Data Sources", path: "/data-sources", icon: Database },
+  { title: "Manage Members", path: "/members", icon: Users },
+  { title: "Email Management", path: "/emails", icon: Mail },
   { title: "Listing Tools", path: "/content-tools", icon: Wand2 },
   { title: "Admin AI", path: "/chatbot", icon: Bot },
   { title: "Analytics", path: "/analytics", icon: Activity },
@@ -44,7 +47,7 @@ const LeftSidebar = () => {
     }>
       <SidebarHeader>
         <div className="hidden xl:flex flex-col items-center px-2 py-3">
-          <ReovanaLogo size="sm" showTagline />
+          <ReovanaLogo size="sm" />
           <span className="text-[10px] text-muted-foreground uppercase tracking-wider mt-2">Admin</span>
         </div>
         <div className="xl:hidden flex flex-col items-center justify-center px-2 py-3">
@@ -59,7 +62,7 @@ const LeftSidebar = () => {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild tooltip={item.title} isActive={pathname === item.path}>
+                  <SidebarMenuButton asChild tooltip={item.title} isActive={pathname === item.path || pathname.startsWith(`${item.path}/`)}>
                     <Link href={item.path} onClick={handleMenuClick}>
                       <item.icon />
                       <span className="xl:hidden">{item.title}</span>

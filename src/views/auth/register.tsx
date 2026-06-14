@@ -42,7 +42,7 @@ const Register = () => {
       setIsLoading(false)
       // Navigate after exit animation completes
       setTimeout(() => {
-        router.push("/chatbot")
+        router.push("/home")
       }, 1000)
     }, 1000)
   }
@@ -85,7 +85,7 @@ const Register = () => {
         <Card className="backdrop-blur-md bg-card">
           <CardHeader className="space-y-3">
             <div className="flex justify-center">
-              <ReovanaLogo size="lg" showTagline />
+              <ReovanaLogo size="lg" />
             </div>
             <CardTitle className="text-xl font-bold text-center">Request admin access</CardTitle>
             <CardDescription className="text-center">Invite-only — use bypass on login for demo</CardDescription>
@@ -129,7 +129,7 @@ const Register = () => {
               {/* Register Button */}
               <Button type="submit" className="w-full text-white" size="lg">Submit request</Button>
 
-              <Button type="button" variant="outline" className="w-full" onClick={() => router.push("/dashboard")}>
+              <Button type="button" variant="outline" className="w-full" onClick={() => router.push("/home")}>
                 Continue without login
               </Button>
 

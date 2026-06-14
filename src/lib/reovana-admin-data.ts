@@ -340,3 +340,194 @@ export const adminChartConfig = {
   expenses: { label: "Expenses", color: "var(--chart-2)" },
   profit: { label: "Profit", color: "var(--chart-3)" },
 };
+
+/** Sammy admin Home tab — operations snapshot (mock). */
+export const HOME_SALES_STATS = [
+  { label: "Today", value: "$1,247" },
+  { label: "Weekly", value: "$8,420" },
+  { label: "Monthly Total", value: "$28,400" },
+];
+
+export const HOME_MEMBER_STATS = [
+  { label: "Today", value: "12" },
+  { label: "Weekly", value: "86" },
+  { label: "Monthly", value: "312" },
+  { label: "Total", value: "1,240" },
+];
+
+export const HOME_NEW_USERS = [
+  { id: "u1", name: "Marcus Chen", email: "marcus.chen@email.com", plan: "Pro", joined: "2h ago" },
+  { id: "u2", name: "Sarah Mitchell", email: "sarah.m@email.com", plan: "Per unlock", joined: "4h ago" },
+  { id: "u3", name: "James Ortiz", email: "j.ortiz@email.com", plan: "Free", joined: "6h ago" },
+  { id: "u4", name: "Emily Foster", email: "emily.f@email.com", plan: "Pro", joined: "8h ago" },
+  { id: "u5", name: "David Kim", email: "david.kim@email.com", plan: "Per unlock", joined: "11h ago" },
+  { id: "u6", name: "Lisa Nguyen", email: "lisa.n@email.com", plan: "Free", joined: "14h ago" },
+  { id: "u7", name: "Robert Hayes", email: "r.hayes@email.com", plan: "Pro", joined: "18h ago" },
+];
+
+export const HOME_NEW_LISTINGS_TODAY = 156;
+
+export const HOME_LOAN_LEADS = [
+  { id: "l1", name: "Angela Brooks", email: "a.brooks@email.com", amount: "$185,000", state: "FL", submitted: "1h ago" },
+  { id: "l2", name: "Tyler Reed", email: "t.reed@email.com", amount: "$142,500", state: "TX", submitted: "3h ago" },
+  { id: "l3", name: "Nina Patel", email: "n.patel@email.com", amount: "$98,000", state: "OH", submitted: "5h ago" },
+  { id: "l4", name: "Chris Dalton", email: "c.dalton@email.com", amount: "$220,000", state: "GA", submitted: "7h ago" },
+  { id: "l5", name: "Rachel Stone", email: "r.stone@email.com", amount: "$156,000", state: "AZ", submitted: "9h ago" },
+  { id: "l6", name: "Kevin Marsh", email: "k.marsh@email.com", amount: "$89,500", state: "TN", submitted: "11h ago" },
+];
+
+export const HOME_LOAN_LEADS_TO_BANKS = [
+  { id: "b1", lead: "Angela Brooks", bank: "SunTrust Mortgage", sent: "45m ago", status: "Pending" },
+  { id: "b2", lead: "Tyler Reed", bank: "Wells Fargo Home", sent: "2h ago", status: "In review" },
+  { id: "b3", lead: "Nina Patel", bank: "Chase Home Lending", sent: "4h ago", status: "Pending" },
+  { id: "b4", lead: "Chris Dalton", bank: "Rocket Mortgage", sent: "5h ago", status: "Submitted" },
+  { id: "b5", lead: "Michael Torres", bank: "Quicken Loans", sent: "Jun 2, 2026", status: "Closed" },
+];
+
+export const HOME_CLOSED_LOANS_DEFAULT = [
+  { id: "c1", lead: "Michael Torres", bank: "Quicken Loans", closedDate: "Jun 2, 2026", earned: "$450" },
+  { id: "c2", lead: "Janet Walsh", bank: "Bank of America", closedDate: "May 28, 2026", earned: "$380" },
+];
+
+export const HOME_TOP_NEW_LISTINGS = [
+  { id: "HUD-094-123456", title: "3bd HUD — Tampa, FL", price: "$142,000", category: "HUD Home", added: "Today", beds: 3, baths: 2, sqft: "1,420", address: "4821 Oak Ridge Dr, Tampa, FL 33610", views: 284, source: "HUD HomeStore" },
+  { id: "FC-2024-44102", title: "2bd Foreclosure — Cleveland, OH", price: "$67,200", category: "Foreclosure", added: "Today", beds: 2, baths: 1, sqft: "980", address: "1184 E 55th St, Cleveland, OH 44103", views: 412, source: "County records" },
+  { id: "VA-REO-8821", title: "4bd Bank Owned — Jacksonville, FL", price: "$98,500", category: "Bank Owned", added: "Today", beds: 4, baths: 2, sqft: "1,680", address: "903 Pine Hollow Ln, Jacksonville, FL 32218", views: 196, source: "VA REO (VRM)" },
+  { id: "HS-475-019", title: "3bd HomeSteps — Austin, TX", price: "$215,000", category: "HomeSteps", added: "Today", beds: 3, baths: 2, sqft: "1,540", address: "2207 Cedar Park Blvd, Austin, TX 78745", views: 158, source: "Freddie Mac HomeSteps" },
+  { id: "PRE-9921", title: "3bd Pre-Foreclosure — Phoenix, AZ", price: "$189,000", category: "Pre-Foreclosure", added: "Today", beds: 3, baths: 2, sqft: "1,290", address: "4410 W Camelback Rd, Phoenix, AZ 85019", views: 221, source: "Pre-foreclosure feed" },
+];
+
+export type MemberSavedProperty = { id: string; title: string; price: string; savedAt: string };
+export type MemberPostedProperty = { id: string; title: string; price: string; status: string; postedAt: string };
+export type MemberPayment = { id: string; date: string; description: string; amount: string; method: string };
+
+export const MOCK_MEMBERS = [
+  {
+    id: "m1",
+    name: "Sarah Mitchell",
+    email: "sarah.m@email.com",
+    plan: "Pro",
+    savedProperties: 4,
+    postedProperties: 2,
+    totalSpent: "$294",
+    joined: "Jan 2025",
+    savedList: [
+      { id: "HUD-094-123456", title: "3bd HUD — Tampa, FL", price: "$142,000", savedAt: "Jun 3, 2026" },
+      { id: "FC-2024-44102", title: "2bd Foreclosure — Cleveland, OH", price: "$67,200", savedAt: "Jun 1, 2026" },
+      { id: "VA-REO-8821", title: "4bd Bank Owned — Jacksonville, FL", price: "$98,500", savedAt: "May 28, 2026" },
+      { id: "PRE-9921", title: "3bd Pre-Foreclosure — Phoenix, AZ", price: "$189,000", savedAt: "May 20, 2026" },
+    ] as MemberSavedProperty[],
+    postedList: [
+      { id: "MOT-1188", title: "Motivated seller — Nashville, TN", price: "$165,000", status: "Published", postedAt: "Apr 12, 2026" },
+      { id: "OFF-2201", title: "Off-market duplex — Charlotte, NC", price: "$203,000", status: "Draft", postedAt: "May 2, 2026" },
+    ] as MemberPostedProperty[],
+    payments: [
+      { id: "p1", date: "Jun 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p2", date: "May 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p3", date: "Apr 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p4", date: "Mar 15, 2026", description: "Property unlock — HUD Tampa", amount: "$9", method: "Stripe" },
+      { id: "p5", date: "Mar 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p6", date: "Feb 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+    ] as MemberPayment[],
+  },
+  {
+    id: "m2",
+    name: "Marcus Chen",
+    email: "marcus.chen@email.com",
+    plan: "Pro",
+    savedProperties: 3,
+    postedProperties: 0,
+    totalSpent: "$441",
+    joined: "Mar 2025",
+    savedList: [
+      { id: "HS-475-019", title: "3bd HomeSteps — Austin, TX", price: "$215,000", savedAt: "Jun 4, 2026" },
+      { id: "TAX-4410", title: "Tax delinquent — Kansas City, MO", price: "$54,800", savedAt: "May 30, 2026" },
+      { id: "SHER-330", title: "Sheriff's sale — Columbus, OH", price: "$72,400", savedAt: "May 18, 2026" },
+    ] as MemberSavedProperty[],
+    postedList: [] as MemberPostedProperty[],
+    payments: [
+      { id: "p1", date: "Jun 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p2", date: "May 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p3", date: "Apr 22, 2026", description: "Property unlock — Austin HomeSteps", amount: "$9", method: "Stripe" },
+      { id: "p4", date: "Apr 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p5", date: "Mar 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+    ] as MemberPayment[],
+  },
+  {
+    id: "m3",
+    name: "James Ortiz",
+    email: "j.ortiz@email.com",
+    plan: "Per unlock",
+    savedProperties: 2,
+    postedProperties: 1,
+    totalSpent: "$72",
+    joined: "May 2025",
+    savedList: [
+      { id: "AUC-8844", title: "Auction — Atlanta, GA", price: "$124,900", savedAt: "Jun 2, 2026" },
+      { id: "GSA-048-2", title: "Government auction — Denver, CO", price: "$310,000", savedAt: "May 25, 2026" },
+    ] as MemberSavedProperty[],
+    postedList: [
+      { id: "MOT-3301", title: "Motivated seller — Orlando, FL", price: "$178,000", status: "Published", postedAt: "May 8, 2026" },
+    ] as MemberPostedProperty[],
+    payments: [
+      { id: "p1", date: "May 28, 2026", description: "Property unlock — Atlanta auction", amount: "$9", method: "Stripe" },
+      { id: "p2", date: "May 10, 2026", description: "Property unlock — Orlando off-market", amount: "$9", method: "Stripe" },
+      { id: "p3", date: "Apr 3, 2026", description: "Property unlock — Denver GSA", amount: "$9", method: "Stripe" },
+    ] as MemberPayment[],
+  },
+  {
+    id: "m4",
+    name: "Emily Foster",
+    email: "emily.f@email.com",
+    plan: "Pro",
+    savedProperties: 5,
+    postedProperties: 0,
+    totalSpent: "$539",
+    joined: "Feb 2025",
+    savedList: [
+      { id: "HUD-094-998812", title: "HUD Home — Las Vegas, NV", price: "$176,500", savedAt: "Jun 3, 2026" },
+      { id: "FC-2024-44102", title: "2bd Foreclosure — Cleveland, OH", price: "$67,200", savedAt: "Jun 1, 2026" },
+      { id: "VA-REO-8821", title: "4bd Bank Owned — Jacksonville, FL", price: "$98,500", savedAt: "May 29, 2026" },
+      { id: "PRE-9921", title: "3bd Pre-Foreclosure — Phoenix, AZ", price: "$189,000", savedAt: "May 22, 2026" },
+      { id: "HS-475-019", title: "3bd HomeSteps — Austin, TX", price: "$215,000", savedAt: "May 15, 2026" },
+    ] as MemberSavedProperty[],
+    postedList: [] as MemberPostedProperty[],
+    payments: [
+      { id: "p1", date: "Jun 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p2", date: "May 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p3", date: "Apr 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p4", date: "Mar 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+      { id: "p5", date: "Feb 1, 2026", description: "Pro subscription — monthly", amount: "$49", method: "Stripe" },
+    ] as MemberPayment[],
+  },
+  {
+    id: "m5",
+    name: "David Kim",
+    email: "david.kim@email.com",
+    plan: "Free",
+    savedProperties: 1,
+    postedProperties: 0,
+    totalSpent: "$0",
+    joined: "Jun 2026",
+    savedList: [
+      { id: "HUD-094-123456", title: "3bd HUD — Tampa, FL", price: "$142,000", savedAt: "Jun 4, 2026" },
+    ] as MemberSavedProperty[],
+    postedList: [] as MemberPostedProperty[],
+    payments: [] as MemberPayment[],
+  },
+];
+
+export const MOCK_EMAIL_CAMPAIGNS = [
+  { id: "e1", subject: "New HUD listings in Florida", audience: "Pro members — FL", status: "Sent", sentAt: "Today 9:00 AM", opens: "42%", recipients: 318 },
+  { id: "e2", subject: "Your saved search: Tampa foreclosures", audience: "Saved search alerts", status: "Scheduled", sentAt: "Tomorrow 8:00 AM", opens: "—", recipients: 124 },
+  { id: "e3", subject: "Welcome to REOVANA Pro", audience: "New Pro signups", status: "Automated", sentAt: "On signup", opens: "68%", recipients: 86 },
+  { id: "e4", subject: "Weekly distressed property digest", audience: "All subscribers", status: "Draft", sentAt: "—", opens: "—", recipients: 1240 },
+  { id: "e5", subject: "Auction ending soon — Atlanta, GA", audience: "Saved auction alerts", status: "Sent", sentAt: "Yesterday 6:00 PM", opens: "51%", recipients: 89 },
+  { id: "e6", subject: "Tax delinquent deals in Missouri", audience: "Pro members — MO", status: "Sent", sentAt: "Jun 2, 2026", opens: "38%", recipients: 42 },
+];
+
+export const EMAIL_SUMMARY_STATS = {
+  sentThisMonth: MOCK_EMAIL_CAMPAIGNS.filter((c) => c.status === "Sent").length,
+  scheduled: MOCK_EMAIL_CAMPAIGNS.filter((c) => c.status === "Scheduled").length,
+  avgOpenRate: "54%",
+};

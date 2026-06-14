@@ -31,7 +31,7 @@ const Login = () => {
     setTimeout(() => {
       setIsLoading(false)
       setTimeout(() => {
-        router.push("/chatbot")
+        router.push("/home")
       }, 1000)
     }, 1000)
   }
@@ -73,7 +73,7 @@ const Login = () => {
         <Card className="backdrop-blur-md bg-card">
           <CardHeader className="space-y-3">
             <div className="flex justify-center">
-              <ReovanaLogo size="lg" showTagline />
+              <ReovanaLogo size="lg" />
             </div>
             <CardTitle className="text-xl font-bold text-center">Admin sign in</CardTitle>
             <CardDescription className="text-center">
@@ -111,7 +111,7 @@ const Login = () => {
                 type="button"
                 variant="outline"
                 className="w-full"
-                onClick={() => router.push("/dashboard")}
+                onClick={() => router.push("/home")}
               >
                 Continue without login
               </Button>
