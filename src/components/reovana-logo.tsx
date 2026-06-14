@@ -1,6 +1,5 @@
+import { REOVANA_BRAND } from "@/lib/reovana-admin-data";
 import { cn } from "@/lib/utils";
-
-const LOGO_SRC = "/images/reovana/logo.png";
 
 type ReovanaLogoProps = {
   size?: "sm" | "md" | "lg";
@@ -8,21 +7,26 @@ type ReovanaLogoProps = {
   className?: string;
 };
 
-const sizeHeights = {
-  sm: "h-8",
-  md: "h-10",
-  lg: "h-14",
+const sizeClasses = {
+  sm: "text-sm tracking-[0.2em]",
+  md: "text-lg tracking-[0.25em]",
+  lg: "text-2xl tracking-[0.3em]",
 };
 
-export function ReovanaLogo({ size = "md", className }: ReovanaLogoProps) {
+export function ReovanaLogo({ size = "md", showTagline = false, className }: ReovanaLogoProps) {
   return (
-    <div className={cn("flex items-center justify-center", className)}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={LOGO_SRC}
-        alt="REOVANA"
-        className={cn("w-auto max-w-full object-contain", sizeHeights[size])}
-      />
+    <div className={cn("flex flex-col", className)}>
+      <span
+        className={cn("font-extrabold text-sidebar-foreground", sizeClasses[size])}
+        style={{ fontFamily: "var(--font-lexend), sans-serif" }}
+      >
+        {REOVANA_BRAND.name}
+      </span>
+      {showTagline && (
+        <span className="text-[10px] uppercase tracking-widest text-muted-foreground mt-0.5">
+          {REOVANA_BRAND.tagline}
+        </span>
+      )}
     </div>
   );
 }
