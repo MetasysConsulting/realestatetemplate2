@@ -343,58 +343,143 @@ export const adminChartConfig = {
 
 /** Sammy admin Home tab — operations snapshot (mock). */
 export const HOME_SALES_STATS = [
-  { label: "Today", value: "$1,247" },
-  { label: "Weekly", value: "$8,420" },
-  { label: "Monthly Total", value: "$28,400" },
+  { label: "Today", value: "$1,240", subtext: "▲ 12% vs yesterday", trend: "up" as const },
+  { label: "This Week", value: "$8,930", subtext: "▲ 6%", trend: "up" as const },
+  { label: "This Month", value: "$34,720", subtext: "▲ 18%", trend: "up" as const },
+  { label: "Total", value: "$412,560", subtext: "all time", trend: "neutral" as const },
 ];
 
 export const HOME_MEMBER_STATS = [
-  { label: "Today", value: "12" },
-  { label: "Weekly", value: "86" },
-  { label: "Monthly", value: "312" },
-  { label: "Total", value: "1,240" },
+  { label: "Today", value: "38", subtext: "▲ 9", trend: "up" as const },
+  { label: "This Week", value: "264", subtext: "▲ 4%", trend: "up" as const },
+  { label: "This Month", value: "1,109", subtext: "▲ 11%", trend: "up" as const },
+  { label: "Total", value: "18,402", subtext: "all time", trend: "neutral" as const },
 ];
 
 export const HOME_NEW_USERS = [
-  { id: "u1", name: "Marcus Chen", email: "marcus.chen@email.com", plan: "Pro", joined: "2h ago" },
-  { id: "u2", name: "Sarah Mitchell", email: "sarah.m@email.com", plan: "Per unlock", joined: "4h ago" },
-  { id: "u3", name: "James Ortiz", email: "j.ortiz@email.com", plan: "Free", joined: "6h ago" },
-  { id: "u4", name: "Emily Foster", email: "emily.f@email.com", plan: "Pro", joined: "8h ago" },
-  { id: "u5", name: "David Kim", email: "david.kim@email.com", plan: "Per unlock", joined: "11h ago" },
-  { id: "u6", name: "Lisa Nguyen", email: "lisa.n@email.com", plan: "Free", joined: "14h ago" },
-  { id: "u7", name: "Robert Hayes", email: "r.hayes@email.com", plan: "Pro", joined: "18h ago" },
+  { id: "u1", name: "Marcus Reyes", email: "m.reyes@gmail.com", plan: "Subscriber", joined: "Today, 9:14 AM" },
+  { id: "u2", name: "Dana Whitfield", email: "danaw@outlook.com", plan: "Free", joined: "Today, 8:02 AM" },
+  { id: "u3", name: "Priya Nair", email: "priya.n@yahoo.com", plan: "Pay-per-unlock", joined: "Today, 7:48 AM" },
+  { id: "u4", name: "Tyler Brooks", email: "tbrooks@gmail.com", plan: "Free", joined: "Yesterday" },
+  { id: "u5", name: "Elena Sokolov", email: "elena.s@gmail.com", plan: "Subscriber", joined: "Yesterday" },
+  { id: "u6", name: "Lisa Nguyen", email: "lisa.n@email.com", plan: "Free", joined: "Yesterday" },
+  { id: "u7", name: "Robert Hayes", email: "r.hayes@email.com", plan: "Subscriber", joined: "2 days ago" },
 ];
 
-export const HOME_NEW_LISTINGS_TODAY = 156;
+export const HOME_NEW_LISTINGS_TODAY = 142;
+
+export const HOME_NEW_LISTINGS_BREAKDOWN = [
+  { label: "HUD Homes", count: 61 },
+  { label: "Foreclosure", count: 34 },
+  { label: "Pre-Foreclosure", count: 28 },
+  { label: "Auction", count: 12 },
+  { label: "User-posted", count: 7 },
+];
+
+export const HOME_LOAN_FORM_NEW_COUNT = 17;
 
 export const HOME_LOAN_LEADS = [
-  { id: "l1", name: "Angela Brooks", email: "a.brooks@email.com", amount: "$185,000", state: "FL", submitted: "1h ago" },
-  { id: "l2", name: "Tyler Reed", email: "t.reed@email.com", amount: "$142,500", state: "TX", submitted: "3h ago" },
-  { id: "l3", name: "Nina Patel", email: "n.patel@email.com", amount: "$98,000", state: "OH", submitted: "5h ago" },
-  { id: "l4", name: "Chris Dalton", email: "c.dalton@email.com", amount: "$220,000", state: "GA", submitted: "7h ago" },
-  { id: "l5", name: "Rachel Stone", email: "r.stone@email.com", amount: "$156,000", state: "AZ", submitted: "9h ago" },
-  { id: "l6", name: "Kevin Marsh", email: "k.marsh@email.com", amount: "$89,500", state: "TN", submitted: "11h ago" },
+  { id: "l1", name: "R. Castillo", submitted: "Today" },
+  { id: "l2", name: "J. Morgan", submitted: "Today" },
+  { id: "l3", name: "S. Patel", submitted: "Today" },
+  { id: "l4", name: "L. Nguyen", submitted: "Yesterday" },
 ];
+
+export const HOME_LOAN_LEADS_TO_BANKS_COUNT = 9;
 
 export const HOME_LOAN_LEADS_TO_BANKS = [
-  { id: "b1", lead: "Angela Brooks", bank: "SunTrust Mortgage", sent: "45m ago", status: "Pending" },
-  { id: "b2", lead: "Tyler Reed", bank: "Wells Fargo Home", sent: "2h ago", status: "In review" },
-  { id: "b3", lead: "Nina Patel", bank: "Chase Home Lending", sent: "4h ago", status: "Pending" },
-  { id: "b4", lead: "Chris Dalton", bank: "Rocket Mortgage", sent: "5h ago", status: "Submitted" },
-  { id: "b5", lead: "Michael Torres", bank: "Quicken Loans", sent: "Jun 2, 2026", status: "Closed" },
+  { id: "b1", lead: "R. Castillo", bank: "SunTrust", status: "Pending" },
+  { id: "b2", lead: "J. Morgan", bank: "Chase", status: "Pending" },
+  { id: "b3", lead: "A. Flores", bank: "Wells", status: "Reviewing" },
 ];
+
+export const HOME_CLOSED_LOANS_TOTAL = "$14,250";
 
 export const HOME_CLOSED_LOANS_DEFAULT = [
-  { id: "c1", lead: "Michael Torres", bank: "Quicken Loans", closedDate: "Jun 2, 2026", earned: "$450" },
-  { id: "c2", lead: "Janet Walsh", bank: "Bank of America", closedDate: "May 28, 2026", earned: "$380" },
+  { id: "c1", lead: "A. Flores", earned: "$6,500" },
+  { id: "c2", lead: "M. Diaz", earned: "$4,750" },
+  { id: "c3", lead: "K. Owusu", earned: "$3,000" },
 ];
 
+export type HomeListingType =
+  | "Pre-Foreclosure"
+  | "Auction"
+  | "Bank-Owned"
+  | "HUD Home"
+  | "Tax Delinquent";
+
+export const HOME_LISTING_TYPE_STYLES: Record<
+  HomeListingType,
+  { bg: string; text: string }
+> = {
+  "Pre-Foreclosure": { bg: "bg-orange-500/20", text: "text-orange-400" },
+  Auction: { bg: "bg-red-500/20", text: "text-red-400" },
+  "Bank-Owned": { bg: "bg-blue-500/20", text: "text-blue-400" },
+  "HUD Home": { bg: "bg-purple-500/20", text: "text-purple-400" },
+  "Tax Delinquent": { bg: "bg-teal-500/20", text: "text-teal-400" },
+};
+
 export const HOME_TOP_NEW_LISTINGS = [
-  { id: "HUD-094-123456", title: "3bd HUD — Tampa, FL", price: "$142,000", category: "HUD Home", added: "Today", beds: 3, baths: 2, sqft: "1,420", address: "4821 Oak Ridge Dr, Tampa, FL 33610", views: 284, source: "HUD HomeStore" },
-  { id: "FC-2024-44102", title: "2bd Foreclosure — Cleveland, OH", price: "$67,200", category: "Foreclosure", added: "Today", beds: 2, baths: 1, sqft: "980", address: "1184 E 55th St, Cleveland, OH 44103", views: 412, source: "County records" },
-  { id: "VA-REO-8821", title: "4bd Bank Owned — Jacksonville, FL", price: "$98,500", category: "Bank Owned", added: "Today", beds: 4, baths: 2, sqft: "1,680", address: "903 Pine Hollow Ln, Jacksonville, FL 32218", views: 196, source: "VA REO (VRM)" },
-  { id: "HS-475-019", title: "3bd HomeSteps — Austin, TX", price: "$215,000", category: "HomeSteps", added: "Today", beds: 3, baths: 2, sqft: "1,540", address: "2207 Cedar Park Blvd, Austin, TX 78745", views: 158, source: "Freddie Mac HomeSteps" },
-  { id: "PRE-9921", title: "3bd Pre-Foreclosure — Phoenix, AZ", price: "$189,000", category: "Pre-Foreclosure", added: "Today", beds: 3, baths: 2, sqft: "1,290", address: "4410 W Camelback Rd, Phoenix, AZ 85019", views: 221, source: "Pre-foreclosure feed" },
+  {
+    id: "MI-4421-NW18",
+    address: "4421 NW 18th Ave, Miami, FL",
+    price: "$312,000",
+    category: "Pre-Foreclosure" as HomeListingType,
+    added: "Today",
+    beds: 3,
+    baths: 2,
+    sqft: "1,520",
+    views: 184,
+    source: "County records",
+  },
+  {
+    id: "HI-812-SW9",
+    address: "812 SW 9th St, Hialeah, FL",
+    price: "$245,500",
+    category: "Auction" as HomeListingType,
+    added: "Today",
+    beds: 2,
+    baths: 1,
+    sqft: "980",
+    views: 142,
+    source: "Auction feed",
+  },
+  {
+    id: "MI-2207-CORAL",
+    address: "2207 Coral Way, Miami, FL",
+    price: "$398,000",
+    category: "Bank-Owned" as HomeListingType,
+    added: "Today",
+    beds: 4,
+    baths: 3,
+    sqft: "2,100",
+    views: 256,
+    source: "VA REO (VRM)",
+  },
+  {
+    id: "MI-159-NE62",
+    address: "159 NE 62 Ter, Miami, FL",
+    price: "$176,900",
+    category: "HUD Home" as HomeListingType,
+    added: "Today",
+    beds: 3,
+    baths: 2,
+    sqft: "1,340",
+    views: 198,
+    source: "HUD HomeStore",
+  },
+  {
+    id: "MI-6630-BIRD",
+    address: "6630 Bird Rd, Miami, FL",
+    price: "$289,000",
+    category: "Tax Delinquent" as HomeListingType,
+    added: "Today",
+    beds: 3,
+    baths: 2,
+    sqft: "1,680",
+    views: 167,
+    source: "Tax delinquent feed",
+  },
 ];
 
 export type MemberSavedProperty = { id: string; title: string; price: string; savedAt: string };

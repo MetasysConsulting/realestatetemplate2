@@ -35,7 +35,7 @@ const ListingDetail = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-white">{listing.title}</CardTitle>
+          <CardTitle className="text-white">{listing.address}</CardTitle>
           <p className="text-sm text-white/50 font-mono">{listing.id}</p>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -45,7 +45,7 @@ const ListingDetail = () => {
               <p className="text-xl font-bold text-primary">{listing.price}</p>
             </div>
             <div>
-              <p className="text-white/50">Category</p>
+              <p className="text-white/50">Type</p>
               <p className="text-white">{listing.category}</p>
             </div>
             <div>
