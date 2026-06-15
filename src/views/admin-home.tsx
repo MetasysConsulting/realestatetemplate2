@@ -24,6 +24,9 @@ import {
   HOME_NEW_LISTINGS_BREAKDOWN,
   HOME_NEW_LISTINGS_TODAY,
   HOME_NEW_USERS,
+  HOME_PAGE_VIEWS,
+  HOME_PAGE_VIEWS_TODAY,
+  HOME_PAGE_VIEWS_WEEK,
   HOME_SALES_STATS,
   HOME_TOP_NEW_LISTINGS,
   type HomeListingType,
@@ -156,7 +159,109 @@ const AdminHome = () => {
             ))}
           </div>
         </section>
+
+        <section className="space-y-2">
+          <div className="flex items-center justify-between gap-2">
+            <h2 className="text-xs font-medium uppercase tracking-wider text-white/45">
+              Site Traffic
+            </h2>
+            <Link
+              href="/analytics"
+              className="text-sm text-primary hover:text-primary/80 transition-colors"
+            >
+              Full analytics →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
+            <StatCard
+              label="Page views today"
+              value={HOME_PAGE_VIEWS_TODAY.toLocaleString()}
+              subtext="▲ 8% vs yesterday"
+              trend="up"
+            />
+            <StatCard
+              label="Page views this week"
+              value={HOME_PAGE_VIEWS_WEEK.toLocaleString()}
+              subtext="▲ 12% vs last week"
+              trend="up"
+            />
+            <StatCard
+              label="Top page today"
+              value={HOME_PAGE_VIEWS[0].page}
+              subtext={`${HOME_PAGE_VIEWS[0].viewsToday.toLocaleString()} views`}
+              trend="neutral"
+            />
+            <StatCard
+              label="Avg. pages / session"
+              value="4.2"
+              subtext="▲ 0.3 vs last week"
+              trend="up"
+            />
+          </div>
+        </section>
       </div>
+
+      {/* Page views by page */}
+      <Card className="border-white/10 bg-[#151b2e] shadow-none">
+        <CardHeader className="flex flex-row items-center justify-between py-3 px-4 pb-1">
+          <div>
+            <CardTitle className="text-white text-base font-semibold">
+              Page Views by Page
+            </CardTitle>
+            <p className="text-sm text-white/50 mt-0.5">
+              Public REOVANA site — last 7 days
+            </p>
+          </div>
+        </CardHeader>
+        <CardContent className="overflow-x-auto px-4 pb-3 pt-0">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="text-left text-xs uppercase tracking-wider text-white/40 border-b border-white/10">
+                <th className="pb-2.5 pr-3 font-medium">Page</th>
+                <th className="pb-2.5 pr-3 font-medium">Path</th>
+                <th className="pb-2.5 pr-3 font-medium text-right">Today</th>
+                <th className="pb-2.5 pr-3 font-medium text-right">7 days</th>
+                <th className="pb-2.5 pr-3 font-medium text-right">Trend</th>
+                <th className="pb-2.5 font-medium min-w-[140px]">Share</th>
+              </tr>
+            </thead>
+            <tbody>
+              {HOME_PAGE_VIEWS.map((row) => (
+                <tr key={row.id} className="border-b border-white/5">
+                  <td className="py-2.5 pr-3 text-white font-medium">{row.page}</td>
+                  <td className="py-2.5 pr-3 text-white/50 font-mono text-xs">{row.path}</td>
+                  <td className="py-2.5 pr-3 text-white text-right tabular-nums">
+                    {row.viewsToday.toLocaleString()}
+                  </td>
+                  <td className="py-2.5 pr-3 text-white font-medium text-right tabular-nums">
+                    {row.viewsWeek.toLocaleString()}
+                  </td>
+                  <td
+                    className={`py-2.5 pr-3 text-right tabular-nums ${
+                      row.change >= 0 ? "text-emerald-400" : "text-red-400"
+                    }`}
+                  >
+                    {row.change >= 0 ? "▲" : "▼"} {Math.abs(row.change)}%
+                  </td>
+                  <td className="py-2.5">
+                    <div className="flex items-center gap-2">
+                      <div className="flex-1 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                        <div
+                          className="h-full rounded-full bg-primary"
+                          style={{ width: `${row.share}%` }}
+                        />
+                      </div>
+                      <span className="text-white/50 text-xs tabular-nums w-10 text-right">
+                        {row.share}%
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </CardContent>
+      </Card>
 
       {/* New Users + Listings Today */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">

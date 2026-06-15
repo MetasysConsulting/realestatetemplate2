@@ -482,6 +482,33 @@ export const HOME_TOP_NEW_LISTINGS = [
   },
 ];
 
+export type HomePageView = {
+  id: string;
+  page: string;
+  path: string;
+  viewsToday: number;
+  viewsWeek: number;
+  change: number;
+  share: number;
+};
+
+export const HOME_PAGE_VIEWS_TODAY = 6240;
+export const HOME_PAGE_VIEWS_WEEK = 48320;
+
+/** Public site page views — mock snapshot for admin Home tab. */
+export const HOME_PAGE_VIEWS: HomePageView[] = [
+  { id: "pv1", page: "Homepage", path: "/", viewsToday: 1842, viewsWeek: 14280, change: 14, share: 29.6 },
+  { id: "pv2", page: "HUD Homes", path: "/listing/hud-homes", viewsToday: 986, viewsWeek: 7640, change: 22, share: 15.8 },
+  { id: "pv3", page: "Foreclosure Listings", path: "/listing/foreclosure", viewsToday: 812, viewsWeek: 6180, change: 11, share: 12.8 },
+  { id: "pv4", page: "Property Search", path: "/listing", viewsToday: 704, viewsWeek: 5420, change: 9, share: 11.2 },
+  { id: "pv5", page: "Loans", path: "/loans", viewsToday: 518, viewsWeek: 3910, change: 31, share: 8.1 },
+  { id: "pv6", page: "Pre-Foreclosure", path: "/listing/pre-foreclosure", viewsToday: 412, viewsWeek: 3240, change: 7, share: 6.7 },
+  { id: "pv7", page: "Auction Properties", path: "/listing/auction", viewsToday: 368, viewsWeek: 2890, change: 5, share: 6.0 },
+  { id: "pv8", page: "Bank Owned", path: "/listing/bank-owned", viewsToday: 298, viewsWeek: 2310, change: 4, share: 4.8 },
+  { id: "pv9", page: "Contact", path: "/contact", viewsToday: 156, viewsWeek: 1180, change: -3, share: 2.4 },
+  { id: "pv10", page: "FAQ & Resources", path: "/faq", viewsToday: 144, viewsWeek: 1270, change: 2, share: 2.6 },
+];
+
 export type MemberSavedProperty = { id: string; title: string; price: string; savedAt: string };
 export type MemberPostedProperty = { id: string; title: string; price: string; status: string; postedAt: string };
 export type MemberPayment = { id: string; date: string; description: string; amount: string; method: string };
