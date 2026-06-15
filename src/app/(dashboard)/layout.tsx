@@ -5,5 +5,9 @@ export default function DashboardRouteLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <AppShell>{children}</AppShell>;
+  return (
+    <div className="reovana-admin-shell">
+      <AppShell>{children}</AppShell>
+    </div>
+  );
 }

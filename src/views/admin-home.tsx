@@ -54,11 +54,11 @@ function StatCard({
       <CardContent className="p-3.5">
         <div className="flex items-center gap-1.5 mb-1">
           <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${dotColor}`} />
-          <p className="text-xs text-white/55">{label}</p>
+          <p className="text-sm text-white/55">{label}</p>
         </div>
-        <p className="text-xl font-bold text-white leading-tight">{value}</p>
+        <p className="text-2xl font-bold text-white leading-tight">{value}</p>
         <p
-          className={`text-[11px] mt-0.5 ${
+          className={`text-xs mt-0.5 ${
             trend === "up" ? "text-emerald-400" : "text-white/40"
           }`}
         >
@@ -73,7 +73,7 @@ function TypeBadge({ type }: { type: HomeListingType }) {
   const style = HOME_LISTING_TYPE_STYLES[type];
   return (
     <span
-      className={`inline-flex px-2.5 py-0.5 rounded-md text-xs font-medium ${style.bg} ${style.text}`}
+      className={`inline-flex px-2.5 py-0.5 rounded-md text-sm font-medium ${style.bg} ${style.text}`}
     >
       {type}
     </span>
@@ -118,12 +118,12 @@ const AdminHome = () => {
 
   return (
     <div className="space-y-5">
-      <h1 className="text-xl font-bold text-white">Dashboard</h1>
+      <h1 className="text-2xl font-bold text-white">Dashboard</h1>
 
       {/* Sales + New Members — compact stat rows */}
       <div className="space-y-4">
         <section className="space-y-2">
-          <h2 className="text-[11px] font-medium uppercase tracking-wider text-white/45">
+          <h2 className="text-xs font-medium uppercase tracking-wider text-white/45">
             Sales
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
@@ -140,7 +140,7 @@ const AdminHome = () => {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-[11px] font-medium uppercase tracking-wider text-white/45">
+          <h2 className="text-xs font-medium uppercase tracking-wider text-white/45">
             New Members
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
@@ -162,32 +162,32 @@ const AdminHome = () => {
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
         <Card className="xl:col-span-2 border-white/10 bg-[#151b2e] shadow-none">
           <CardHeader className="flex flex-row items-center justify-between py-3 px-4 pb-1">
-            <CardTitle className="text-white text-sm font-semibold">New Users</CardTitle>
+            <CardTitle className="text-white text-base font-semibold">New Users</CardTitle>
             <button
               type="button"
               onClick={() => setShowAllUsers(!showAllUsers)}
-              className="text-xs text-primary hover:text-primary/80 transition-colors"
+              className="text-sm text-primary hover:text-primary/80 transition-colors"
             >
               {showAllUsers ? "Show top 5" : "Expand / View all →"}
             </button>
           </CardHeader>
           <CardContent className="overflow-x-auto px-4 pb-3 pt-0">
-            <table className="w-full text-xs">
+            <table className="w-full text-sm">
               <thead>
-                <tr className="text-left text-[10px] uppercase tracking-wider text-white/40 border-b border-white/10">
-                  <th className="pb-2 pr-3 font-medium">Name</th>
-                  <th className="pb-2 pr-3 font-medium">Email</th>
-                  <th className="pb-2 pr-3 font-medium">Joined</th>
-                  <th className="pb-2 font-medium">Plan</th>
+                <tr className="text-left text-xs uppercase tracking-wider text-white/40 border-b border-white/10">
+                  <th className="pb-2.5 pr-3 font-medium">Name</th>
+                  <th className="pb-2.5 pr-3 font-medium">Email</th>
+                  <th className="pb-2.5 pr-3 font-medium">Joined</th>
+                  <th className="pb-2.5 font-medium">Plan</th>
                 </tr>
               </thead>
               <tbody>
                 {visibleUsers.map((user) => (
                   <tr key={user.id} className="border-b border-white/5">
-                    <td className="py-2 pr-3 text-white font-medium">{user.name}</td>
-                    <td className="py-2 pr-3 text-white/60">{user.email}</td>
-                    <td className="py-2 pr-3 text-white/50">{user.joined}</td>
-                    <td className="py-2 text-white/80">{user.plan}</td>
+                    <td className="py-2.5 pr-3 text-white font-medium">{user.name}</td>
+                    <td className="py-2.5 pr-3 text-white/60">{user.email}</td>
+                    <td className="py-2.5 pr-3 text-white/50">{user.joined}</td>
+                    <td className="py-2.5 text-white/80">{user.plan}</td>
                   </tr>
                 ))}
               </tbody>
@@ -197,18 +197,18 @@ const AdminHome = () => {
 
         <Card className="border-white/10 bg-[#151b2e] shadow-none">
           <CardHeader className="py-3 px-4 pb-1">
-            <CardTitle className="text-white text-sm font-semibold">
+            <CardTitle className="text-white text-base font-semibold">
               New Listings Today
             </CardTitle>
           </CardHeader>
           <CardContent className="px-4 pb-3 pt-0">
             <p className="text-3xl font-bold text-white leading-none">{HOME_NEW_LISTINGS_TODAY}</p>
-            <p className="text-xs text-white/50 mt-0.5 mb-3">added to the site today</p>
+            <p className="text-sm text-white/50 mt-0.5 mb-3">added to the site today</p>
             <div>
               {HOME_NEW_LISTINGS_BREAKDOWN.map((row) => (
                 <div
                   key={row.label}
-                  className="flex items-center justify-between py-2 border-t border-white/10 text-xs"
+                  className="flex items-center justify-between py-2.5 border-t border-white/10 text-sm"
                 >
                   <span className="text-white/70">{row.label}</span>
                   <span className="text-white font-medium">{row.count}</span>
@@ -224,28 +224,28 @@ const AdminHome = () => {
         <Card className="border-white/10 bg-[#151b2e] shadow-none flex flex-col">
           <CardHeader className="py-3 px-4 pb-1">
             <div className="flex items-center justify-between">
-              <CardTitle className="text-white text-sm font-semibold">
+              <CardTitle className="text-white text-base font-semibold">
                 Loan Form Leads
               </CardTitle>
-              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/20 text-primary">
+              <span className="text-xs font-medium px-1.5 py-0.5 rounded-full bg-primary/20 text-primary">
                 {HOME_LOAN_FORM_NEW_COUNT} new
               </span>
             </div>
-            <p className="text-xs text-white/50">From &apos;Need a Loan&apos; form</p>
+            <p className="text-sm text-white/50">From &apos;Need a Loan&apos; form</p>
           </CardHeader>
           <CardContent className="flex-1 flex flex-col px-4 pb-3 pt-0">
             <div className="flex-1">
               {HOME_LOAN_LEADS.map((lead) => (
                 <div
                   key={lead.id}
-                  className="flex items-center justify-between py-2 border-t border-white/10 text-xs"
+                  className="flex items-center justify-between py-2.5 border-t border-white/10 text-sm"
                 >
                   <span className="text-white font-medium">{lead.name}</span>
                   <span className="text-white/50">{lead.submitted}</span>
                 </div>
               ))}
             </div>
-            <button type="button" className="text-xs text-primary mt-2 text-left hover:text-primary/80">
+            <button type="button" className="text-sm text-primary mt-2 text-left hover:text-primary/80">
               View all →
             </button>
           </CardContent>
@@ -254,21 +254,21 @@ const AdminHome = () => {
         <Card className="border-white/10 bg-[#151b2e] shadow-none flex flex-col">
           <CardHeader className="py-3 px-4 pb-1">
             <div className="flex items-center justify-between">
-              <CardTitle className="text-white text-sm font-semibold">
+              <CardTitle className="text-white text-base font-semibold">
                 Submitted to Banks
               </CardTitle>
-              <span className="text-[10px] font-medium h-5 w-5 flex items-center justify-center rounded-full bg-primary/20 text-primary">
+              <span className="text-xs font-medium h-5 w-5 flex items-center justify-center rounded-full bg-primary/20 text-primary">
                 {HOME_LOAN_LEADS_TO_BANKS_COUNT}
               </span>
             </div>
-            <p className="text-xs text-white/50">Leads sent to lenders</p>
+            <p className="text-sm text-white/50">Leads sent to lenders</p>
           </CardHeader>
           <CardContent className="flex-1 flex flex-col px-4 pb-3 pt-0">
             <div className="flex-1">
               {HOME_LOAN_LEADS_TO_BANKS.map((row) => (
                 <div
                   key={row.id}
-                  className="flex items-center justify-between gap-2 py-2 border-t border-white/10 text-xs"
+                  className="flex items-center justify-between gap-2 py-2.5 border-t border-white/10 text-sm"
                 >
                   <span className="text-white">
                     {row.lead} → {row.bank}
@@ -277,7 +277,7 @@ const AdminHome = () => {
                 </div>
               ))}
             </div>
-            <button type="button" className="text-xs text-primary mt-2 text-left hover:text-primary/80">
+            <button type="button" className="text-sm text-primary mt-2 text-left hover:text-primary/80">
               View all →
             </button>
           </CardContent>
@@ -285,16 +285,16 @@ const AdminHome = () => {
 
         <Card className="border-white/10 bg-[#151b2e] shadow-none flex flex-col">
           <CardHeader className="py-3 px-4 pb-1">
-            <CardTitle className="text-white text-sm font-semibold">Closed Loans</CardTitle>
+            <CardTitle className="text-white text-base font-semibold">Closed Loans</CardTitle>
           </CardHeader>
           <CardContent className="flex-1 flex flex-col px-4 pb-3 pt-0">
             <p className="text-2xl font-bold text-emerald-400 leading-none">{closedTotal}</p>
-            <p className="text-xs text-white/50 mb-2">earned from closed loan leads</p>
+            <p className="text-sm text-white/50 mb-2">earned from closed loan leads</p>
             <div className="flex-1">
               {closedLoans.map((deal) => (
                 <div
                   key={deal.id}
-                  className="flex items-center justify-between py-2 border-t border-white/10 text-xs"
+                  className="flex items-center justify-between py-2.5 border-t border-white/10 text-sm"
                 >
                   <span className="text-white font-medium">{deal.lead}</span>
                   <span className="text-emerald-400 font-medium">{deal.earned}</span>
@@ -303,7 +303,7 @@ const AdminHome = () => {
             </div>
             <Dialog open={addOpen} onOpenChange={setAddOpen}>
               <DialogTrigger asChild>
-                <Button size="sm" className="w-full mt-2 h-8 text-xs bg-primary hover:bg-primary/90 text-white">
+                <Button size="sm" className="w-full mt-2 h-9 text-sm bg-primary hover:bg-primary/90 text-white">
                   <Plus className="h-3.5 w-3.5" /> Add closed loan
                 </Button>
               </DialogTrigger>
@@ -335,41 +335,41 @@ const AdminHome = () => {
       {/* Top 5 New Listings */}
       <Card className="border-white/10 bg-[#151b2e] shadow-none">
         <CardHeader className="flex flex-row items-center justify-between py-3 px-4 pb-1">
-          <CardTitle className="text-white text-sm font-semibold">
+          <CardTitle className="text-white text-base font-semibold">
             Top 5 New Listings
           </CardTitle>
           <Link
             href="/listings"
-            className="text-xs text-primary hover:text-primary/80 transition-colors"
+            className="text-sm text-primary hover:text-primary/80 transition-colors"
           >
             View all listings →
           </Link>
         </CardHeader>
         <CardContent className="overflow-x-auto px-4 pb-3 pt-0">
-          <table className="w-full text-xs">
+          <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-[10px] uppercase tracking-wider text-white/40 border-b border-white/10">
-                <th className="pb-2 pr-3 font-medium">Address</th>
-                <th className="pb-2 pr-3 font-medium">Type</th>
-                <th className="pb-2 pr-3 font-medium">Price</th>
-                <th className="pb-2 pr-3 font-medium">Added</th>
-                <th className="pb-2 font-medium" />
+              <tr className="text-left text-xs uppercase tracking-wider text-white/40 border-b border-white/10">
+                <th className="pb-2.5 pr-3 font-medium">Address</th>
+                <th className="pb-2.5 pr-3 font-medium">Type</th>
+                <th className="pb-2.5 pr-3 font-medium">Price</th>
+                <th className="pb-2.5 pr-3 font-medium">Added</th>
+                <th className="pb-2.5 font-medium" />
               </tr>
             </thead>
             <tbody>
               {HOME_TOP_NEW_LISTINGS.map((listing) => (
                 <tr key={listing.id} className="border-b border-white/5">
-                  <td className="py-2 pr-3 text-white">{listing.address}</td>
-                  <td className="py-2 pr-3">
+                  <td className="py-2.5 pr-3 text-white">{listing.address}</td>
+                  <td className="py-2.5 pr-3">
                     <TypeBadge type={listing.category} />
                   </td>
-                  <td className="py-2 pr-3 text-white font-medium">{listing.price}</td>
-                  <td className="py-2 pr-3 text-white/50">{listing.added}</td>
-                  <td className="py-2">
+                  <td className="py-2.5 pr-3 text-white font-medium">{listing.price}</td>
+                  <td className="py-2.5 pr-3 text-white/50">{listing.added}</td>
+                  <td className="py-2.5">
                     <Button
                       variant="outline"
                       size="sm"
-                      className="border-primary/40 text-primary hover:bg-primary/10 h-7 text-xs px-2"
+                      className="border-primary/40 text-primary hover:bg-primary/10 h-8 text-sm px-2.5"
                       asChild
                     >
                       <Link href={`/home/listing/${encodeURIComponent(listing.id)}`}>
