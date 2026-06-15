@@ -13,7 +13,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     const isChatbotPage = pathname === "/chatbot" || pathname.startsWith("/chatbot/")
 
     return (
-        <SidebarProvider>
+        <SidebarProvider
+            style={
+                {
+                    "--sidebar-width-icon": "12rem",
+                } as React.CSSProperties
+            }
+        >
             <LeftSidebar />
             <SidebarInset>
                 <Header />

@@ -8,20 +8,20 @@ type ReovanaLogoProps = {
   className?: string;
 };
 
-const sizeHeights = {
-  sm: "h-[44px]",
-  md: "h-[56px]",
-  lg: "h-[72px]",
+const sizeWidths = {
+  sm: "w-[140px]",
+  md: "w-[180px]",
+  lg: "w-[220px]",
 };
 
 export function ReovanaLogo({ size = "md", className }: ReovanaLogoProps) {
   return (
-    <div className={cn("flex items-center justify-center", className)}>
+    <div className={cn("flex items-center justify-center shrink-0", className)}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={LOGO_SRC}
         alt="REOVANA"
-        className={cn("w-auto max-w-full object-contain", sizeHeights[size])}
+        className={cn("h-auto max-w-none object-contain", sizeWidths[size])}
       />
     </div>
   );

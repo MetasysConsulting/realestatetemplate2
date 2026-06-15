@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import UpdateImg from "@/assets/update1.svg";
 import { assetSrc } from "@/lib/utils";
 
-const SIDEBAR_WIDTH_ICON = "6rem"
+const SIDEBAR_WIDTH_ICON = "12rem"
 
 const menuItems = [
   { title: "Home", path: "/home", icon: Home },
@@ -43,14 +43,15 @@ const LeftSidebar = () => {
     <Sidebar collapsible="icon" style={
       {
         "--sidebar-width": SIDEBAR_WIDTH_ICON,
+        "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
       } as React.CSSProperties
     }>
-      <SidebarHeader>
-        <div className="hidden xl:flex flex-col items-center px-2 py-3">
-          <ReovanaLogo size="md" />
+      <SidebarHeader className="overflow-visible">
+        <div className="hidden xl:flex flex-col items-center px-1 py-4 overflow-visible">
+          <ReovanaLogo size="lg" />
           <span className="text-[10px] text-muted-foreground uppercase tracking-wider mt-2">Admin</span>
         </div>
-        <div className="xl:hidden flex flex-col items-center justify-center px-2 py-3">
+        <div className="xl:hidden flex flex-col items-center justify-center px-2 py-4 overflow-visible">
           <ReovanaLogo size="lg" />
           <span className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">Admin</span>
         </div>
