@@ -38,19 +38,16 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  Cell,
   XAxis,
   YAxis,
 } from "recharts";
 
 const incomeChartConfig = {
-  value: { label: "Revenue index", color: "#5CB8FF" },
+  value: { label: "Revenue", color: "var(--chart-1)" },
 };
 
 /** Ascending so the largest bar renders at the top (Recharts vertical layout). */
 const incomeChartData = [...HOME_INCOME_SOURCES].sort((a, b) => a.value - b.value);
-
-const INCOME_BAR_COLOR = "#5CB8FF";
 
 type ClosedLoan = {
   id: string;
@@ -168,60 +165,66 @@ const AdminHome = () => {
               <p className="text-sm text-white/50 mt-0.5">Monthly revenue mix — this month</p>
             </CardHeader>
             <CardContent className="px-4 pb-4 pt-0">
-              <div className="rounded-xl bg-white px-3 py-5 sm:px-5">
-                <ChartContainer
-                  config={incomeChartConfig}
-                  className="h-[300px] w-full aspect-auto"
+              <ChartContainer
+                config={incomeChartConfig}
+                className="h-[300px] w-full aspect-auto [&_.recharts-cartesian-axis-tick_text]:fill-white/60"
+              >
+                <BarChart
+                  layout="vertical"
+                  data={incomeChartData}
+                  margin={{ top: 4, right: 16, left: 4, bottom: 4 }}
+                  barCategoryGap="20%"
                 >
-                  <BarChart
-                    layout="vertical"
-                    data={incomeChartData}
-                    margin={{ top: 4, right: 16, left: 4, bottom: 4 }}
-                    barCategoryGap="20%"
-                  >
-                    <CartesianGrid
-                      horizontal={false}
-                      stroke="#e2e8f0"
-                      strokeDasharray="4 4"
-                    />
-                    <XAxis
-                      type="number"
-                      domain={[0, 12]}
-                      ticks={[0, 3, 6, 9, 12]}
-                      stroke="#94a3b8"
-                      fontSize={12}
-                      tickLine={false}
-                      axisLine={{ stroke: "#e2e8f0" }}
-                    />
-                    <YAxis
-                      type="category"
-                      dataKey="source"
-                      width={128}
-                      stroke="#64748b"
-                      fontSize={13}
-                      tickLine={false}
-                      axisLine={false}
-                    />
-                    <ChartTooltip
-                      cursor={{ fill: "rgba(92, 184, 255, 0.08)" }}
-                      content={
-                        <ChartTooltipContent
-                          formatter={(_value, _name, item) => (
-                            <span className="font-medium text-slate-800">
-                              {item.payload.amount}
-                            </span>
-                          )}
-                        />
-                      }
-                    />
-                    <Bar dataKey="value" radius={[0, 10, 10, 0]} barSize={26}>
-                      {incomeChartData.map((entry) => (
-                        <Cell key={entry.source} fill={INCOME_BAR_COLOR} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ChartContainer>
-              </div>
+                  <defs>
+                    <linearGradient id="incomeBarGradient" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="var(--chart-1)" stopOpacity={0.85} />
+                      <stop offset="100%" stopColor="var(--sidebar-primary)" stopOpacity={1} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid
+                    horizontal={false}
+                    stroke="rgba(255,255,255,0.08)"
+                    strokeDasharray="4 4"
+                  />
+                  <XAxis
+                    type="number"
+                    domain={[0, 12]}
+                    ticks={[0, 3, 6, 9, 12]}
+                    stroke="#64748b"
+                    fontSize={12}
+                    tickLine={false}
+                    axisLine={{ stroke: "rgba(255,255,255,0.1)" }}
+                  />
+                  <YAxis
+                    type="category"
+                    dataKey="source"
+                    width={128}
+                    stroke="#64748b"
+                    fontSize={13}
+                    tickLine={false}
+                    axisLine={false}
+                    tick={{ fill: "rgba(255,255,255,0.75)" }}
+                  />
+                  <ChartTooltip
+                    cursor={{ fill: "rgba(118, 149, 255, 0.08)" }}
+                    content={
+                      <ChartTooltipContent
+                        formatter={(_value, _name, item) => (
+                          <span className="font-medium text-white">
+                            {item.payload.amount}
+                          </span>
+                        )}
+                      />
+                    }
+                  />
+                  <Bar
+                    dataKey="value"
+                    fill="url(#incomeBarGradient)"
+                    radius={[0, 10, 10, 0]}
+                    barSize={26}
+                  />
+                </BarChart>
+              </ChartContainer>
             </CardContent>
           </Card>
         </section>
