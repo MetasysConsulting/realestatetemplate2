@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import UpdateImg from "@/assets/update1.svg";
 import { assetSrc } from "@/lib/utils";
 
-const SIDEBAR_WIDTH_ICON = "12rem"
+const SIDEBAR_WIDTH_ICON = "7rem"
 
 const menuItems = [
   { title: "Home", path: "/home", icon: Home },

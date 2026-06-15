@@ -16,7 +16,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <SidebarProvider
             style={
                 {
-                    "--sidebar-width-icon": "12rem",
+                    "--sidebar-width-icon": "7rem",
                 } as React.CSSProperties
             }
         >
