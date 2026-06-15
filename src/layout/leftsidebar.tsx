@@ -47,11 +47,11 @@ const LeftSidebar = () => {
     }>
       <SidebarHeader>
         <div className="hidden xl:flex flex-col items-center px-2 py-3">
-          <ReovanaLogo size="sm" />
+          <ReovanaLogo size="md" />
           <span className="text-[10px] text-muted-foreground uppercase tracking-wider mt-2">Admin</span>
         </div>
         <div className="xl:hidden flex flex-col items-center justify-center px-2 py-3">
-          <ReovanaLogo size="md" />
+          <ReovanaLogo size="lg" />
           <span className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">Admin</span>
         </div>
       </SidebarHeader>

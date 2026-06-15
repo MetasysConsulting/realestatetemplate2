@@ -18,7 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <SidebarInset>
                 <Header />
                 <main className="flex-1 flex flex-col max-w-7xl mx-auto w-full">
-                    <div className="p-5">
+                    <div className="p-5 reovana-admin-shell">
                         {children}
                     </div>
                     {!isChatbotPage && <Footer />}

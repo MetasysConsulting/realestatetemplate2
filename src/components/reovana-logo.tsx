@@ -9,9 +9,9 @@ type ReovanaLogoProps = {
 };
 
 const sizeHeights = {
-  sm: "h-8",
-  md: "h-10",
-  lg: "h-14",
+  sm: "h-[44px]",
+  md: "h-[56px]",
+  lg: "h-[72px]",
 };
 
 export function ReovanaLogo({ size = "md", className }: ReovanaLogoProps) {
