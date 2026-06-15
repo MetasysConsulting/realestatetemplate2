@@ -349,6 +349,23 @@ export const HOME_SALES_STATS = [
   { label: "Total", value: "$412,560", subtext: "all time", trend: "neutral" as const },
 ];
 
+export type HomeIncomeSource = {
+  source: string;
+  value: number;
+  amount: string;
+};
+
+/** Monthly revenue mix — chart scale 0–12 ($K index) for admin Home tab. */
+export const HOME_INCOME_SOURCES: HomeIncomeSource[] = [
+  { source: "Paid Memberships", value: 10.2, amount: "$12,400" },
+  { source: "Loan Leads", value: 9.1, amount: "$9,100" },
+  { source: "Agent Leads", value: 8.3, amount: "$8,300" },
+  { source: "Cash Offer Leads", value: 8.1, amount: "$8,100" },
+  { source: "Data Sales", value: 7.4, amount: "$7,400" },
+  { source: "Advertising", value: 6.2, amount: "$6,200" },
+  { source: "Property Listings", value: 7.0, amount: "$7,000" },
+];
+
 export const HOME_MEMBER_STATS = [
   { label: "Today", value: "38", subtext: "▲ 9", trend: "up" as const },
   { label: "This Week", value: "264", subtext: "▲ 4%", trend: "up" as const },

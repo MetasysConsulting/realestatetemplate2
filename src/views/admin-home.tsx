@@ -15,6 +15,7 @@ import {
 import {
   HOME_CLOSED_LOANS_DEFAULT,
   HOME_CLOSED_LOANS_TOTAL,
+  HOME_INCOME_SOURCES,
   HOME_LISTING_TYPE_STYLES,
   HOME_LOAN_FORM_NEW_COUNT,
   HOME_LOAN_LEADS,
@@ -32,6 +33,24 @@ import {
   type HomeListingType,
 } from "@/lib/reovana-admin-data";
 import { ExternalLink, Plus } from "lucide-react";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  XAxis,
+  YAxis,
+} from "recharts";
+
+const incomeChartConfig = {
+  value: { label: "Revenue index", color: "#5CB8FF" },
+};
+
+/** Ascending so the largest bar renders at the top (Recharts vertical layout). */
+const incomeChartData = [...HOME_INCOME_SOURCES].sort((a, b) => a.value - b.value);
+
+const INCOME_BAR_COLOR = "#5CB8FF";
 
 type ClosedLoan = {
   id: string;
@@ -140,6 +159,71 @@ const AdminHome = () => {
               />
             ))}
           </div>
+
+          <Card className="border-white/10 bg-[#151b2e] shadow-none">
+            <CardHeader className="py-3 px-4 pb-1">
+              <CardTitle className="text-white text-base font-semibold">
+                Primary income sources for the REOVANA platform.
+              </CardTitle>
+              <p className="text-sm text-white/50 mt-0.5">Monthly revenue mix — this month</p>
+            </CardHeader>
+            <CardContent className="px-4 pb-4 pt-0">
+              <div className="rounded-xl bg-white px-3 py-5 sm:px-5">
+                <ChartContainer
+                  config={incomeChartConfig}
+                  className="h-[300px] w-full aspect-auto"
+                >
+                  <BarChart
+                    layout="vertical"
+                    data={incomeChartData}
+                    margin={{ top: 4, right: 16, left: 4, bottom: 4 }}
+                    barCategoryGap="20%"
+                  >
+                    <CartesianGrid
+                      horizontal={false}
+                      stroke="#e2e8f0"
+                      strokeDasharray="4 4"
+                    />
+                    <XAxis
+                      type="number"
+                      domain={[0, 12]}
+                      ticks={[0, 3, 6, 9, 12]}
+                      stroke="#94a3b8"
+                      fontSize={12}
+                      tickLine={false}
+                      axisLine={{ stroke: "#e2e8f0" }}
+                    />
+                    <YAxis
+                      type="category"
+                      dataKey="source"
+                      width={128}
+                      stroke="#64748b"
+                      fontSize={13}
+                      tickLine={false}
+                      axisLine={false}
+                    />
+                    <ChartTooltip
+                      cursor={{ fill: "rgba(92, 184, 255, 0.08)" }}
+                      content={
+                        <ChartTooltipContent
+                          formatter={(_value, _name, item) => (
+                            <span className="font-medium text-slate-800">
+                              {item.payload.amount}
+                            </span>
+                          )}
+                        />
+                      }
+                    />
+                    <Bar dataKey="value" radius={[0, 10, 10, 0]} barSize={26}>
+                      {incomeChartData.map((entry) => (
+                        <Cell key={entry.source} fill={INCOME_BAR_COLOR} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ChartContainer>
+              </div>
+            </CardContent>
+          </Card>
         </section>
 
         <section className="space-y-2">
